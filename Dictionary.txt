@@ -1,0 +1,78 @@
+Create database Dictionary
+
+Create table Illust
+(
+	HinhAnh varchar(200),
+	KichCo varchar(10),		
+)
+Alter table Illust
+Add constraint PK_Illust Primary Key(HinhAnh)
+
+
+Create table Note
+(
+	NoiDungNote varchar(100),
+	ThoiGian datetime,
+)
+Alter table Note add
+constraint PK_Note Primary Key (NoiDungNote)
+
+
+Create table Word
+(
+	TenTu varchar(30),
+	DangTu varchar(4),
+	NoiDungNote varchar(100),
+	HinhAnh varchar(200),
+)
+Alter table Word
+Add constraint PK_Word Primary Key (TenTu,DangTu),
+constraint FK_Word_Note Foreign Key (NoiDungNote) references Note(NoiDungNote),
+constraint Fk_Word_Illust Foreign Key (HinhAnh) references Illust(HinhAnh)
+
+
+Create table Meaning
+(
+	Nghia varchar(50),
+)
+Alter table Meaning
+Add constraint PK_Meaning Primary Key(Nghia)
+
+
+Create table Translate
+(
+	TenTu varchar(30),
+	DangTu varchar(4),
+	Nghia varchar(50),
+	ViDu varchar(100),
+)
+Alter table Translate
+Add constraint FK_Trans_Word Foreign Key (TenTu) references Word(TenTu),
+constraint FK_Trans_Word Foreign Key (DangTu) references Word(DangTu),
+constraint FK_Trans_Meaning Foreign Key (Nghia) references Meaning(Nghia),
+constraint PK_Trans Primary Key(TenTu,DangTu,Nghia)
+
+
+Create table Sound
+(
+	AmThanh varchar(100),
+	GiongDoc varchar(20),
+	TenTu varchar(30),
+	DangTu varchar(4),
+)
+Alter table Sound Add
+constraint PK_Sound Primary Key (AmThanh),
+constraint FK_Sound_Word (TenTu) references Word(TenTu),
+constraint FK_Sound_Word (DangTu) references Word(DangTu)
+
+
+Create table BookMark
+(
+	TenTu varchar(30),
+	DangTu varchar(4),
+	ThoiGianMark datetime,
+)
+Alter table BookMark Add
+constraint PK_BookMark Primary Key (TenTu,DangTu),
+constraint FK_BM_Word Foreign Key (TenTu) references Word(TenTu),
+constraint FK_BM_Word Foreign Key (DangTu) references Word(DangTu)
