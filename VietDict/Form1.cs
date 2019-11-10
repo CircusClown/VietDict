@@ -26,5 +26,15 @@ namespace VietDict
         {
 
         }
+
+        private void TreeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
