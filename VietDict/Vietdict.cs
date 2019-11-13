@@ -11,11 +11,22 @@ using DevExpress.XtraEditors;
 
 namespace VietDict
 {
+    //gửi Hiệu, do giờ tau chưa đưa mi cái db đc nên chịu khó comment out hết đống này để design mà không vướng code của tau 
     public partial class Vietdict : DevExpress.XtraEditors.XtraForm
     {
+        process mainProc;
         public Vietdict()
         {
             InitializeComponent();
+            mainProc = new process();
+            List<string> allWord = mainProc.wordListing();
+            if (allWord == null) return;
+            this.treeView1.BeginUpdate();
+            foreach(var x in allWord)
+            {
+                treeView1.Nodes.Add(x);
+            }
+            this.treeView1.EndUpdate();
         }
 
         private void Label1_Click(object sender, EventArgs e)
@@ -35,7 +46,16 @@ namespace VietDict
 
         private void SimpleButton4_Click(object sender, EventArgs e)
         {
-
+            string query = textBox1.Text;
+            List<string> allWord = mainProc.wordQuery(query);
+            if (allWord == null) return;
+            this.treeView1.BeginUpdate();
+            treeView1.Nodes.Clear();
+            foreach (var x in allWord)
+            {
+                treeView1.Nodes.Add(x);
+            }
+            this.treeView1.EndUpdate();
         }
 
         private void Vietdict_Load(object sender, EventArgs e)
@@ -51,6 +71,12 @@ namespace VietDict
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void TreeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            TreeNode x = e.Node;
+            richTextBox1.Text = mainProc.outputWordInfo(x.Text);
         }
     }
 }
