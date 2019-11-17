@@ -30,20 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraForm1));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node0");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node1");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Node3");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Node4");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Node5");
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Bộ sưu tập"}, 3, System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
+            "Bộ sưu tập"}, "hiclipart.com.png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Nghe"}, "hiclipart.com (3).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
+            "Nghe"}, "fixed_icon.png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "Quản lí"}, "hiclipart.com (2).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
             System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "Tùy chọn"}, "untitled (21).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Tất cả các từ", "hiclipart.com (4).png");
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -52,6 +47,9 @@
             this.button5 = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
@@ -59,15 +57,16 @@
             this.button7 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
@@ -83,19 +82,18 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.backgroundWorker3 = new System.ComponentModel.BackgroundWorker();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.toggleSwitch1 = new DevExpress.XtraEditors.ToggleSwitch();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel16.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -104,6 +102,8 @@
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
             this.xtraTabControl2.SuspendLayout();
+            this.xtraTabPage5.SuspendLayout();
+            this.xtraTabPage6.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -111,8 +111,9 @@
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage4.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.xtraTabPage3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -200,30 +201,13 @@
             this.treeView1.ForeColor = System.Drawing.SystemColors.Window;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Node0";
-            treeNode1.Text = "Node0";
-            treeNode2.Name = "Node1";
-            treeNode2.Text = "Node1";
-            treeNode3.Name = "Node2";
-            treeNode3.Text = "Node2";
-            treeNode4.Name = "Node3";
-            treeNode4.Text = "Node3";
-            treeNode5.Name = "Node4";
-            treeNode5.Text = "Node4";
-            treeNode6.Name = "Node5";
-            treeNode6.Text = "Node5";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6});
             this.treeView1.Size = new System.Drawing.Size(239, 402);
             this.treeView1.TabIndex = 0;
+            this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TreeView1_NodeMouseClick);
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.toggleSwitch1);
             this.panel5.Controls.Add(this.panel16);
             this.panel5.Controls.Add(this.panel13);
             this.panel5.Controls.Add(this.panel12);
@@ -235,6 +219,45 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(239, 156);
             this.panel5.TabIndex = 0;
+            // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.button1);
+            this.panel16.Controls.Add(this.textBox1);
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel16.Location = new System.Drawing.Point(0, 25);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(239, 30);
+            this.panel16.TabIndex = 24;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.Window;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(204, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(35, 30);
+            this.button1.TabIndex = 15;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(239, 30);
+            this.textBox1.TabIndex = 13;
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // panel13
             // 
@@ -323,33 +346,16 @@
             this.panel12.Size = new System.Drawing.Size(239, 25);
             this.panel12.TabIndex = 22;
             // 
-            // button1
+            // label5
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Window;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(204, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 30);
-            this.button1.TabIndex = 15;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(239, 30);
-            this.textBox1.TabIndex = 13;
-            this.textBox1.Text = "ádad";
-            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(130)))), ((int)(((byte)(138)))));
+            this.label5.Location = new System.Drawing.Point(0, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 20);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Tìm Kiếm";
             // 
             // label1
             // 
@@ -406,15 +412,43 @@
             // 
             // xtraTabPage5
             // 
+            this.xtraTabPage5.Controls.Add(this.richTextBox1);
             this.xtraTabPage5.Name = "xtraTabPage5";
             this.xtraTabPage5.Size = new System.Drawing.Size(855, 379);
             this.xtraTabPage5.Text = "Nghĩa từ";
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.richTextBox1.ForeColor = System.Drawing.Color.White;
+            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(855, 379);
+            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.Text = "";
+            // 
             // xtraTabPage6
             // 
+            this.xtraTabPage6.Controls.Add(this.richTextBox2);
             this.xtraTabPage6.Name = "xtraTabPage6";
             this.xtraTabPage6.Size = new System.Drawing.Size(855, 379);
             this.xtraTabPage6.Text = "Nghĩa chuyên ngành";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
+            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.richTextBox2.ForeColor = System.Drawing.Color.White;
+            this.richTextBox2.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(855, 379);
+            this.richTextBox2.TabIndex = 3;
+            this.richTextBox2.Text = "";
             // 
             // panel3
             // 
@@ -448,27 +482,29 @@
             this.button2.Size = new System.Drawing.Size(59, 37);
             this.button2.TabIndex = 19;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
             this.label4.ForeColor = System.Drawing.SystemColors.Window;
-            this.label4.Location = new System.Drawing.Point(782, 0);
+            this.label4.Location = new System.Drawing.Point(787, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 20);
+            this.label4.Size = new System.Drawing.Size(70, 20);
             this.label4.TabIndex = 21;
-            this.label4.Text = "Phiêm âm";
+            this.label4.Text = "Phiên âm";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Window;
-            this.label3.Location = new System.Drawing.Point(65, 2);
+            this.label3.Location = new System.Drawing.Point(59, -4);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 20);
+            this.label3.Size = new System.Drawing.Size(58, 25);
             this.label3.TabIndex = 20;
-            this.label3.Text = "Từ";
+            this.label3.Text = "Word";
             this.label3.Click += new System.EventHandler(this.Label3_Click);
             // 
             // panel2
@@ -552,6 +588,8 @@
             this.imageList1.Images.SetKeyName(11, "untitled (21).png");
             this.imageList1.Images.SetKeyName(12, "untitled (22).png");
             this.imageList1.Images.SetKeyName(13, "untitled (23).png");
+            this.imageList1.Images.SetKeyName(14, "fixed_icon.png");
+            this.imageList1.Images.SetKeyName(15, "hiclipart.com (4).png");
             // 
             // flowLayoutPanel1
             // 
@@ -574,6 +612,7 @@
             // 
             this.xtraTabPage3.Appearance.PageClient.BackColor = System.Drawing.Color.White;
             this.xtraTabPage3.Appearance.PageClient.Options.UseBackColor = true;
+            this.xtraTabPage3.Controls.Add(this.listView2);
             this.xtraTabPage3.Name = "xtraTabPage3";
             this.xtraTabPage3.Size = new System.Drawing.Size(855, 94);
             this.xtraTabPage3.Text = "Bộ sưu tập";
@@ -628,26 +667,51 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1112, 568);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // panel16
+            // toggleSwitch1
             // 
-            this.panel16.Controls.Add(this.button1);
-            this.panel16.Controls.Add(this.textBox1);
-            this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel16.Location = new System.Drawing.Point(0, 25);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(239, 30);
-            this.panel16.TabIndex = 24;
+            this.toggleSwitch1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toggleSwitch1.Location = new System.Drawing.Point(0, 55);
+            this.toggleSwitch1.Name = "toggleSwitch1";
+            this.toggleSwitch1.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.toggleSwitch1.Properties.Appearance.Options.UseFont = true;
+            this.toggleSwitch1.Properties.Appearance.Options.UseTextOptions = true;
+            this.toggleSwitch1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.toggleSwitch1.Properties.AppearanceDisabled.Options.UseTextOptions = true;
+            this.toggleSwitch1.Properties.AppearanceDisabled.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.toggleSwitch1.Properties.AppearanceReadOnly.Options.UseTextOptions = true;
+            this.toggleSwitch1.Properties.AppearanceReadOnly.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.toggleSwitch1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.toggleSwitch1.Properties.OffText = "Ngoại tuyến";
+            this.toggleSwitch1.Properties.OnText = "Trực tuyến";
+            this.toggleSwitch1.Size = new System.Drawing.Size(239, 62);
+            this.toggleSwitch1.TabIndex = 22;
             // 
-            // label5
+            // listView2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(130)))), ((int)(((byte)(138)))));
-            this.label5.Location = new System.Drawing.Point(0, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 20);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Tìm Kiếm";
+            this.listView2.Alignment = System.Windows.Forms.ListViewAlignment.Left;
+            this.listView2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
+            this.listView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.listView2.ForeColor = System.Drawing.Color.White;
+            this.listView2.HideSelection = false;
+            this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem5});
+            this.listView2.LargeImageList = this.imageList2;
+            this.listView2.Location = new System.Drawing.Point(0, 0);
+            this.listView2.Name = "listView2";
+            this.listView2.Scrollable = false;
+            this.listView2.Size = new System.Drawing.Size(855, 94);
+            this.listView2.TabIndex = 0;
+            this.listView2.TileSize = new System.Drawing.Size(200, 20);
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Tile;
+            // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "hiclipart.com (4).png");
             // 
             // XtraForm1
             // 
@@ -672,6 +736,8 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.panel14.ResumeLayout(false);
@@ -682,6 +748,8 @@
             this.panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
             this.xtraTabControl2.ResumeLayout(false);
+            this.xtraTabPage5.ResumeLayout(false);
+            this.xtraTabPage6.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
@@ -690,9 +758,9 @@
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage4.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.xtraTabPage3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -708,7 +776,6 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label2;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel8;
@@ -728,7 +795,6 @@
         private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
         private System.Windows.Forms.ImageList imageList1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage7;
-        private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -740,11 +806,15 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private DevExpress.XtraEditors.ToggleSwitch toggleSwitch1;
+        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ImageList imageList2;
     }
 }
