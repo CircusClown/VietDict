@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace VietDict
 {
     static class Program
@@ -16,7 +17,7 @@ namespace VietDict
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Vietdict());
+            Application.Run(new XtraForm1());
         }
     }
 }
