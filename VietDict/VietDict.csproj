@@ -92,6 +92,12 @@
     <Compile Include="Quanli.Designer.cs">
       <DependentUpon>Quanli.cs</DependentUpon>
     </Compile>
+    <Compile Include="SplashScreen1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen1.Designer.cs">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </Compile>
     <Compile Include="XtraForm1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </Compile>
     <EmbeddedResource Include="Quanli.resx">
       <DependentUpon>Quanli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XtraForm1.resx">
       <DependentUpon>XtraForm1.cs</DependentUpon>
@@ -140,7 +149,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\untitled %2827%29.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Image1.bmp" />
   </ItemGroup>

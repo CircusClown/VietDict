@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-
+using System.Threading;
 
 namespace VietDict
 {
@@ -78,6 +78,39 @@ namespace VietDict
                 curNode = treeView1.Nodes[0];
                 string pronounce;
                 richTextBox1.Text = mainProc.outputWordBaseInfo(curNode.Text, out pronounce);
+                int selectionstart = richTextBox1.SelectionStart;
+                int totallength = richTextBox1.Lines.Length;
+                for (int i = selectionstart; i < totallength; i++)
+                {
+                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), richTextBox1.Lines[i].Length);
+
+                    if (richTextBox1.SelectedText.Contains("+") == true)
+                    {
+                        richTextBox1.SelectionColor = Color.FromArgb(191, 201, 38);
+                        richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 5);
+                        richTextBox1.SelectionColor = Color.Aqua;
+                    }
+                    if (richTextBox1.SelectedText.Contains("*") == true)
+                    {
+                        richTextBox1.SelectionColor = Color.FromArgb(191, 150, 100);
+                        richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 5);
+                        richTextBox1.SelectionColor = Color.Aqua;
+                        richTextBox1.SelectedText = "\t\t =";
+                    }
+                    if ((richTextBox1.SelectedText.Contains("-") == true)&& (richTextBox1.SelectedText.Contains("->") == false))
+                    {
+                        richTextBox1.SelectionColor = Color.LightBlue;
+                        richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 4);
+                        richTextBox1.SelectionColor = Color.Aqua;
+                    }
+                    if (richTextBox1.SelectedText.Contains("->") == true)
+                    {
+                        richTextBox1.SelectionColor = Color.Aqua;
+                        richTextBox1.SelectionFont = new Font("Segoe UI", 16, FontStyle.Regular);
+                        richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 2);
+                        richTextBox1.SelectedText = "\u21D2";
+                    }
+                }
                 richTextBox2.Text = mainProc.outputWordSpecialInfo(curNode.Text);
                 label3.Text = curNode.Text;
                 label4.Text = pronounce;
@@ -89,6 +122,39 @@ namespace VietDict
             curNode = e.Node;
             string pronounce;
             richTextBox1.Text = mainProc.outputWordBaseInfo(curNode.Text, out pronounce);
+            int selectionstart = richTextBox1.SelectionStart;
+            int totallength = richTextBox1.Lines.Length;
+            for (int i = selectionstart; i < totallength; i++)
+            {
+                richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), richTextBox1.Lines[i].Length);
+
+                if (richTextBox1.SelectedText.Contains("+") == true)
+                {
+                    richTextBox1.SelectionColor = Color.FromArgb(191, 201, 38);
+                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 5);
+                    richTextBox1.SelectionColor = Color.Aqua;
+                }
+                if (richTextBox1.SelectedText.Contains("*") == true)
+                {
+                    richTextBox1.SelectionColor = Color.FromArgb(191, 150, 100);
+                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 5);
+                    richTextBox1.SelectionColor = Color.Aqua;
+                    richTextBox1.SelectedText = "\t\t =";
+                }
+                if ((richTextBox1.SelectedText.Contains("-") == true) && (richTextBox1.SelectedText.Contains("->") == false))
+                {
+                    richTextBox1.SelectionColor = Color.LightBlue;
+                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 4);
+                    richTextBox1.SelectionColor = Color.Aqua;
+                }
+                if (richTextBox1.SelectedText.Contains("->") == true)
+                {
+                    richTextBox1.SelectionColor = Color.Aqua;
+                    richTextBox1.SelectionFont = new Font("Segoe UI", 16, FontStyle.Regular);
+                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 2);
+                    richTextBox1.SelectedText = "\u21D2";
+                }
+            }
             richTextBox2.Text = mainProc.outputWordSpecialInfo(curNode.Text);
             label3.Text = curNode.Text;
             label4.Text = pronounce;
@@ -98,5 +164,11 @@ namespace VietDict
         {
             mainProc.speakWord(label3.Text);
         }
+
+        private void XtraForm1_Load(object sender, EventArgs e)
+        {
+           Thread.Sleep(2000);
+        }
+
     }
 }
