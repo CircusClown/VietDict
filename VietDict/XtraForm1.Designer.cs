@@ -46,6 +46,12 @@
             "Phản hồi"}, "mail.png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
             System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
             "Thông tin nhà phát triển"}, "1024px-Infobox_info_icon.svg.png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Project Link"}, 0, System.Drawing.Color.White, System.Drawing.Color.Empty, null);
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Team CircusClows");
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("- Trương Bá Cường");
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("- Hà Minh Hiệu");
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("- Nguyễn Ngọc Đăng");
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
@@ -83,6 +89,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.toggleSwitch1 = new DevExpress.XtraEditors.ToggleSwitch();
             this.panel16 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -94,6 +101,14 @@
             this.button7 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.flyoutPanel2 = new DevExpress.Utils.FlyoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.listView4 = new System.Windows.Forms.ListView();
+            this.listView5 = new System.Windows.Forms.ListView();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -119,11 +134,15 @@
             this.panel7.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).BeginInit();
             this.panel16.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel2)).BeginInit();
+            this.flyoutPanel2.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,7 +150,7 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "hiclipart.com (2).png");
+            this.imageList1.Images.SetKeyName(0, "GitHub-Mark.png");
             this.imageList1.Images.SetKeyName(1, "hiclipart.com (3).png");
             this.imageList1.Images.SetKeyName(2, "hiclipart.com (4).png");
             this.imageList1.Images.SetKeyName(3, "hiclipart.com.png");
@@ -151,6 +170,7 @@
             this.imageList1.Images.SetKeyName(17, "1024px-Infobox_info_icon.svg.png");
             this.imageList1.Images.SetKeyName(18, "mail.png");
             this.imageList1.Images.SetKeyName(19, "1024px-Infobox_info_icon.svg.png");
+            this.imageList1.Images.SetKeyName(20, "hiclipart.com (2).png");
             // 
             // imageList2
             // 
@@ -437,6 +457,7 @@
             this.listView2.TileSize = new System.Drawing.Size(200, 20);
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Tile;
+            this.listView2.Click += new System.EventHandler(this.ListView2_Click);
             // 
             // xtraTabPage7
             // 
@@ -471,11 +492,13 @@
             listViewItem8});
             this.listView3.LargeImageList = this.imageList1;
             this.listView3.Location = new System.Drawing.Point(3, 11);
+            this.listView3.MultiSelect = false;
             this.listView3.Name = "listView3";
             this.listView3.Scrollable = false;
             this.listView3.Size = new System.Drawing.Size(959, 80);
             this.listView3.TabIndex = 3;
             this.listView3.UseCompatibleStateImageBehavior = false;
+            this.listView3.Click += new System.EventHandler(this.ListView3_Click);
             // 
             // panel1
             // 
@@ -537,6 +560,7 @@
             this.button3.TabIndex = 17;
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // button5
             // 
@@ -568,7 +592,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.toggleSwitch1);
+            this.panel5.Controls.Add(this.tableLayoutPanel4);
             this.panel5.Controls.Add(this.panel16);
             this.panel5.Controls.Add(this.panel13);
             this.panel5.Controls.Add(this.panel12);
@@ -581,11 +605,26 @@
             this.panel5.Size = new System.Drawing.Size(270, 156);
             this.panel5.TabIndex = 0;
             // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.112971F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 92.88703F));
+            this.tableLayoutPanel4.Controls.Add(this.toggleSwitch1, 1, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 55);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(270, 62);
+            this.tableLayoutPanel4.TabIndex = 25;
+            // 
             // toggleSwitch1
             // 
             this.toggleSwitch1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toggleSwitch1.Location = new System.Drawing.Point(0, 55);
+            this.toggleSwitch1.Location = new System.Drawing.Point(22, 3);
             this.toggleSwitch1.Name = "toggleSwitch1";
+            this.toggleSwitch1.Properties.AllowFocused = false;
             this.toggleSwitch1.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch1.Properties.Appearance.ForeColor = System.Drawing.Color.White;
             this.toggleSwitch1.Properties.Appearance.Options.UseFont = true;
@@ -597,10 +636,11 @@
             this.toggleSwitch1.Properties.AppearanceReadOnly.Options.UseTextOptions = true;
             this.toggleSwitch1.Properties.AppearanceReadOnly.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.toggleSwitch1.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.toggleSwitch1.Properties.GlyphVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
             this.toggleSwitch1.Properties.OffText = "Ngoại tuyến";
             this.toggleSwitch1.Properties.OnText = "Trực tuyến";
             this.toggleSwitch1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.toggleSwitch1.Size = new System.Drawing.Size(270, 62);
+            this.toggleSwitch1.Size = new System.Drawing.Size(245, 56);
             this.toggleSwitch1.TabIndex = 22;
             // 
             // panel16
@@ -669,7 +709,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.Window;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.Image = global::VietDict.Properties.Resources.untitled__13_;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button4.Location = new System.Drawing.Point(8, 1);
             this.button4.Name = "button4";
@@ -693,6 +733,7 @@
             this.button6.TabIndex = 20;
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.Button6_Click);
             // 
             // button7
             // 
@@ -722,12 +763,132 @@
             // 
             // panel12
             // 
+            this.panel12.Controls.Add(this.flyoutPanel2);
             this.panel12.Controls.Add(this.label5);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 0);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(270, 25);
             this.panel12.TabIndex = 22;
+            // 
+            // flyoutPanel2
+            // 
+            this.flyoutPanel2.Controls.Add(this.tableLayoutPanel5);
+            this.flyoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.flyoutPanel2.Name = "flyoutPanel2";
+            this.flyoutPanel2.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Left;
+            this.flyoutPanel2.Options.CloseOnOuterClick = true;
+            this.flyoutPanel2.OwnerControl = this;
+            this.flyoutPanel2.ParentForm = this;
+            this.flyoutPanel2.Size = new System.Drawing.Size(276, 564);
+            this.flyoutPanel2.TabIndex = 17;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 3;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.508772F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 96.49123F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutPanel5.Controls.Add(this.label9, 0, 5);
+            this.tableLayoutPanel5.Controls.Add(this.label6, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.label7, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.label8, 1, 3);
+            this.tableLayoutPanel5.Controls.Add(this.listView4, 1, 5);
+            this.tableLayoutPanel5.Controls.Add(this.listView5, 1, 4);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 6;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555555F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(276, 564);
+            this.tableLayoutPanel5.TabIndex = 2;
+            // 
+            // label9
+            // 
+            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(3, 499);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(3, 65);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Thông tin nhà phát triển";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label6
+            // 
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(12, 62);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(249, 62);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Thông tin nhà phát triển";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label7
+            // 
+            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 124);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(249, 27);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Đồ án Lập trình trực quan";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label8
+            // 
+            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(12, 186);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(249, 31);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Từ điển VietDict";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // listView4
+            // 
+            this.listView4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
+            this.listView4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView4.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.listView4.HideSelection = false;
+            this.listView4.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem9});
+            this.listView4.LargeImageList = this.imageList1;
+            this.listView4.Location = new System.Drawing.Point(12, 502);
+            this.listView4.Name = "listView4";
+            this.listView4.Scrollable = false;
+            this.listView4.Size = new System.Drawing.Size(249, 59);
+            this.listView4.TabIndex = 2;
+            this.listView4.UseCompatibleStateImageBehavior = false;
+            this.listView4.View = System.Windows.Forms.View.Tile;
+            // 
+            // listView5
+            // 
+            this.listView5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
+            this.listView5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listView5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView5.ForeColor = System.Drawing.Color.White;
+            this.listView5.HideSelection = false;
+            this.listView5.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem10,
+            listViewItem11,
+            listViewItem12,
+            listViewItem13});
+            this.listView5.Location = new System.Drawing.Point(12, 220);
+            this.listView5.Name = "listView5";
+            this.listView5.Size = new System.Drawing.Size(249, 276);
+            this.listView5.TabIndex = 3;
+            this.listView5.UseCompatibleStateImageBehavior = false;
+            this.listView5.View = System.Windows.Forms.View.Tile;
             // 
             // label5
             // 
@@ -782,6 +943,7 @@
             this.Name = "XtraForm1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VietDict";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.XtraForm1_FormClosing);
             this.Load += new System.EventHandler(this.XtraForm1_Load);
             this.panel4.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
@@ -807,6 +969,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).EndInit();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
@@ -815,6 +978,9 @@
             this.panel14.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel2)).EndInit();
+            this.flyoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -872,5 +1038,14 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private DevExpress.Utils.FlyoutPanel flyoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ListView listView4;
+        private System.Windows.Forms.ListView listView5;
+        private System.Windows.Forms.Label label9;
     }
 }

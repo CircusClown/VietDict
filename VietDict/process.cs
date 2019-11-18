@@ -11,6 +11,9 @@ namespace VietDict
     class process
     {
         dbaccess mainaccess;
+        private List<string> searchHistory = new List<string>();
+        private int historyIndex = 0;
+
         public process()
         {
             mainaccess = new dbaccess();
@@ -59,6 +62,63 @@ namespace VietDict
         {
             SpeechSynthesizer a = new SpeechSynthesizer();
             a.Speak(input);
+        }
+        public void addToHistory(string input)
+        {
+            searchHistory.Add(input);
+            if (searchHistory.Count > 50)
+            {
+                searchHistory.RemoveAt(0);
+                
+            }
+            historyIndex = searchHistory.Count - 1;
+
+        }
+        public string retrievePrevHistory()
+        {
+            if (searchHistory.Count == 0) return "";
+            if (historyIndex > 0) historyIndex--;
+            return searchHistory[historyIndex];
+        }
+        public string retrieveNextHistory()
+        {
+            if (searchHistory.Count == 0) return "";
+            if (historyIndex < searchHistory.Count - 1) historyIndex++;
+            return searchHistory[historyIndex];
+        }
+        public bool isBookmarked(string query)
+        {
+            return mainaccess.isInCollection(Regex.Replace(query, "'", "<sq>"), "Bookmark");
+        }
+
+        public bool removeFromBookmark(string input)
+        {
+            return mainaccess.removeFromCollection(Regex.Replace(input, "'", "<sq>"), "Bookmark");
+        }
+
+        public bool addToBookmark(string input)
+        {
+            return mainaccess.addToCollection(Regex.Replace(input, "'", "<sq>"), "Bookmark");
+        }
+
+        internal List<string> collectionWordListing(string selectCollection)
+        {
+            List<string> res = mainaccess.loadCollectionWord(selectCollection);
+            for (int i = 0; i < res.Count; i++)
+            {
+                res[i] = Regex.Replace(res[i], "<sq>", "'");
+            }
+            return res;
+        }
+
+        internal List<string> wordCollectionQuery(string query, string selectCollection)
+        {
+            List<string> res = mainaccess.queryCollectionWord(query, selectCollection);
+            for (int i = 0; i < res.Count; i++)
+            {
+                res[i] = Regex.Replace(res[i], "<sq>", "'");
+            }
+            return res;
         }
     }
 }
