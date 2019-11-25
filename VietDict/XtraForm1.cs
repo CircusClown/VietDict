@@ -20,7 +20,7 @@ namespace VietDict
         bool isBookmarked;
         public XtraForm1()
         {
-            
+
             InitializeComponent();
             mainProc = new process();
             List<string> result = mainProc.wordListing();
@@ -191,7 +191,7 @@ namespace VietDict
                     richTextBox1.SelectedText = "\u21D2";
                 }
             }
-            
+
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -245,7 +245,7 @@ namespace VietDict
 
         private void XtraForm1_Load(object sender, EventArgs e)
         {
-           Thread.Sleep(2000);
+            Thread.Sleep(2000);
         }
 
         private static bool canCloseFunc(DialogResult parameter)
@@ -278,7 +278,7 @@ namespace VietDict
                 //DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "OK", Result = System.Windows.Forms.DialogResult.OK };
                 //action.Commands.Add(command1);
                 //DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action);
-                
+
                 flyoutPanel2.ShowPopup();
             }
         }
@@ -297,7 +297,7 @@ namespace VietDict
                     treeView1.Nodes.Add(entry);
                 }
                 treeView1.EndUpdate();
-                
+
             }
             else
             {
@@ -312,5 +312,41 @@ namespace VietDict
                 treeView1.EndUpdate();
             }
         }
+
+        private void ListView1_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedIndices.Count < 1) return;
+            if (listView1.SelectedIndices[0] == 0)
+            {
+                //string s = "test";
+                //DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction action = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction() { Caption = "Thông tin nhà phát triển", Description = s };
+                //DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "OK", Result = System.Windows.Forms.DialogResult.OK };
+                //action.Commands.Add(command1);
+                //DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action);
+                flyoutPanel3.Height =(int)(ClientSize.Height*0.8);
+                flyoutPanel3.ShowPopup();
+            }
+            if (listView1.SelectedIndices[0] == 1)
+            {
+                //string s = "test";
+                //DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction action = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction() { Caption = "Thông tin nhà phát triển", Description = s };
+                //DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "OK", Result = System.Windows.Forms.DialogResult.OK };
+                //action.Commands.Add(command1);
+                //DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action);
+                flyoutPanel1.ShowPopup();
+            }
+        }
+
+        private void Button16_Click(object sender, EventArgs e)
+        {
+            contextMenuStrip1.Show(button16, button16.Size.Width, button16.Size.Height);
+            foreach (ToolStripMenuItem i in contextMenuStrip1.Items)
+            {
+                i.ForeColor = Color.White;
+            }
+        }
+
+
     }
+
 }
