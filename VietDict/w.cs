@@ -36,5 +36,20 @@ namespace VietDict
         {
 
         }
+
+        private void RichTextBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

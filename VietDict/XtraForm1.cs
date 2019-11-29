@@ -281,6 +281,10 @@ namespace VietDict
 
                 flyoutPanel2.ShowPopup();
             }
+            if (listView3.SelectedIndices[0] == 1)
+            {
+                flyoutPanel6.ShowPopup();
+            }
         }
 
         private void ListView2_Click(object sender, EventArgs e)
@@ -335,6 +339,11 @@ namespace VietDict
                 //DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action);
                 flyoutPanel1.ShowPopup();
             }
+            if (listView1.SelectedIndices[0]==2)
+            {
+                flyoutPanel4.Height = (int)(panel8.Height);
+                flyoutPanel4.ShowPopup();
+            }
         }
 
         private void Button16_Click(object sender, EventArgs e)
@@ -346,7 +355,31 @@ namespace VietDict
             }
         }
 
+        private void Button19_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void Button25_Click(object sender, EventArgs e)
+        {
+            flyoutPanel5.Height = panel8.Height;
+            flyoutPanel5.ShowPopup();
+        }
+
+        private void Button23_Click(object sender, EventArgs e)
+        {
+            flyoutPanel5.Height = panel8.Height;
+            flyoutPanel5.ShowPopup();
+        }
+
+        private void Button26_Click(object sender, EventArgs e)
+        {
+            contextMenuStrip2.Show(button26, button26.Size.Width, button26.Size.Height);
+            foreach (ToolStripMenuItem i in contextMenuStrip2.Items)
+            {
+                i.ForeColor = Color.White;
+            }
+        }
     }
 
 }
