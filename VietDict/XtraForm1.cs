@@ -199,11 +199,7 @@ namespace VietDict
             onSearch();
         }
 
-        private void TreeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-        {
-            curNode = e.Node;
-            reloadMeaningPanel();
-        }
+    
 
         private void reloadMeaningPanel()
         {
@@ -379,6 +375,29 @@ namespace VietDict
             {
                 i.ForeColor = Color.White;
             }
+        }
+
+        private void TreeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            curNode = e.Node;
+            reloadMeaningPanel();
+            if (e.Button==MouseButtons.Right)
+            {
+                contextMenuStrip3.Show(treeView1,e.Location);
+                foreach (ToolStripMenuItem i in contextMenuStrip3.Items)
+                {
+                    i.ForeColor = Color.White;
+                }
+            }
+        }
+
+        private void TreeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            treeView1.SelectedNode = null;
+        }
+
+        private void ContextMenuStrip3_MouseClick(object sender, MouseEventArgs e)
+        {
         }
     }
 

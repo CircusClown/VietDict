@@ -106,8 +106,8 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.flyoutPanel2 = new DevExpress.Utils.FlyoutPanel();
             this.flyoutPanelControl2 = new DevExpress.Utils.FlyoutPanelControl();
-            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -1007,7 +1007,7 @@
             // 
             this.xtraTabPage2.Controls.Add(this.richTextBox6);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(597, 287);
+            this.xtraTabPage2.Size = new System.Drawing.Size(17, 287);
             this.xtraTabPage2.Text = "Nghĩa chuyên ngành";
             // 
             // richTextBox6
@@ -1019,7 +1019,7 @@
             this.richTextBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.richTextBox6.Location = new System.Drawing.Point(0, 0);
             this.richTextBox6.Name = "richTextBox6";
-            this.richTextBox6.Size = new System.Drawing.Size(597, 287);
+            this.richTextBox6.Size = new System.Drawing.Size(17, 287);
             this.richTextBox6.TabIndex = 3;
             this.richTextBox6.Text = "";
             // 
@@ -1098,16 +1098,6 @@
             this.flyoutPanelControl2.Size = new System.Drawing.Size(302, 579);
             this.flyoutPanelControl2.TabIndex = 0;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.label3.Location = new System.Drawing.Point(3, 11);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 28);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Email:";
-            // 
             // tableLayoutPanel12
             // 
             this.tableLayoutPanel12.ColumnCount = 1;
@@ -1127,6 +1117,16 @@
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 185F));
             this.tableLayoutPanel12.Size = new System.Drawing.Size(298, 575);
             this.tableLayoutPanel12.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.label3.Location = new System.Drawing.Point(3, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 28);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Email:";
             // 
             // textBox1
             // 
