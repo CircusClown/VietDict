@@ -38,24 +38,20 @@
             System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("- Hà Minh Hiệu");
             System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("- Nguyễn Ngọc Đăng");
             System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Bookmarks");
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Go");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("icon");
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
-            "run"}, -1, System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
             "Bộ sưu tập"}, "hiclipart.com.png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
             "Dịch câu"}, "fixed_icon.png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
             "Học Từ"}, "hiclipart.com (2).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
             "Tùy chọn"}, "untitled (21).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("Tất cả các từ", "hiclipart.com (4).png");
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("Tất cả các từ", "hiclipart.com (4).png");
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
             "Trợ Giúp"}, "675454_tools_512x512 (1).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem(new string[] {
             "Phản hồi"}, "mail.png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
-            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem(new string[] {
             "Thông tin nhà phát triển"}, "1024px-Infobox_info_icon.svg.png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
@@ -121,7 +117,6 @@
             this.listView5 = new System.Windows.Forms.ListView();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flyoutPanel4 = new DevExpress.Utils.FlyoutPanel();
             this.flyoutPanelControl4 = new DevExpress.Utils.FlyoutPanelControl();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
@@ -140,6 +135,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.panel27 = new System.Windows.Forms.Panel();
             this.button22 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flyoutPanel3 = new DevExpress.Utils.FlyoutPanel();
             this.flyoutPanelControl3 = new DevExpress.Utils.FlyoutPanelControl();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
@@ -208,7 +204,6 @@
             this.nghĩaCủaVíDụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Danhsach = new System.Windows.Forms.ToolStripMenuItem();
-            this.danhSáchBộSưuTậpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.họcTừToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -245,7 +240,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel2)).BeginInit();
             this.flyoutPanel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel4)).BeginInit();
             this.flyoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl4)).BeginInit();
@@ -257,6 +251,7 @@
             this.tableLayoutPanel14.SuspendLayout();
             this.panel26.SuspendLayout();
             this.panel27.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel3)).BeginInit();
             this.flyoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl3)).BeginInit();
@@ -1124,15 +1119,6 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "Danh sách từ";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox1.Location = new System.Drawing.Point(778, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(53, 379);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
             // flyoutPanel4
             // 
             this.flyoutPanel4.Controls.Add(this.flyoutPanelControl4);
@@ -1379,6 +1365,15 @@
             this.button22.Text = "Đáp án";
             this.button22.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox1.Location = new System.Drawing.Point(778, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(53, 379);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
             // flyoutPanel3
             // 
             this.flyoutPanel3.Controls.Add(this.flyoutPanelControl3);
@@ -1499,6 +1494,7 @@
             this.button9.TabIndex = 9;
             this.button9.Text = "Xóa";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.Button9_Click);
             // 
             // button10
             // 
@@ -1513,6 +1509,7 @@
             this.button10.TabIndex = 7;
             this.button10.Text = "Thêm";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.Button10_Click);
             // 
             // listView6
             // 
@@ -1524,12 +1521,14 @@
             this.listView6.HideSelection = false;
             this.listView6.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem6});
+            this.listView6.LargeImageList = this.imageList2;
             this.listView6.Location = new System.Drawing.Point(4, 22);
             this.listView6.Name = "listView6";
             this.listView6.Size = new System.Drawing.Size(51, 45);
             this.listView6.TabIndex = 3;
             this.listView6.UseCompatibleStateImageBehavior = false;
-            this.listView6.View = System.Windows.Forms.View.SmallIcon;
+            this.listView6.View = System.Windows.Forms.View.Tile;
+            this.listView6.Click += new System.EventHandler(this.ListView6_Click);
             // 
             // panel17
             // 
@@ -1590,6 +1589,7 @@
             this.button12.TabIndex = 9;
             this.button12.Text = "Xóa";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.Button12_Click);
             // 
             // listView7
             // 
@@ -1599,13 +1599,6 @@
             this.listView7.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.listView7.ForeColor = System.Drawing.SystemColors.Window;
             this.listView7.HideSelection = false;
-            listViewItem7.StateImageIndex = 0;
-            listViewItem8.StateImageIndex = 0;
-            listViewItem9.StateImageIndex = 0;
-            this.listView7.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem7,
-            listViewItem8,
-            listViewItem9});
             this.listView7.Location = new System.Drawing.Point(62, 22);
             this.listView7.Name = "listView7";
             this.listView7.Size = new System.Drawing.Size(99, 45);
@@ -1709,6 +1702,7 @@
             this.button14.Size = new System.Drawing.Size(72, 38);
             this.button14.TabIndex = 6;
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.Button14_Click);
             // 
             // panel19
             // 
@@ -1734,6 +1728,7 @@
             this.button15.Size = new System.Drawing.Size(54, 36);
             this.button15.TabIndex = 8;
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.Button15_Click);
             // 
             // label12
             // 
@@ -1966,10 +1961,10 @@
             this.listView1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem10,
-            listViewItem11,
-            listViewItem12,
-            listViewItem13});
+            listViewItem7,
+            listViewItem8,
+            listViewItem9,
+            listViewItem10});
             this.listView1.LargeImageList = this.imageList1;
             this.listView1.Location = new System.Drawing.Point(0, 10);
             this.listView1.Name = "listView1";
@@ -2014,7 +2009,7 @@
             this.listView2.ForeColor = System.Drawing.Color.White;
             this.listView2.HideSelection = false;
             this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem14});
+            listViewItem11});
             this.listView2.LargeImageList = this.imageList2;
             this.listView2.Location = new System.Drawing.Point(0, 0);
             this.listView2.Name = "listView2";
@@ -2055,9 +2050,9 @@
             this.listView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView3.HideSelection = false;
             this.listView3.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem15,
-            listViewItem16,
-            listViewItem17});
+            listViewItem12,
+            listViewItem13,
+            listViewItem14});
             this.listView3.LargeImageList = this.imageList1;
             this.listView3.Location = new System.Drawing.Point(3, 11);
             this.listView3.MultiSelect = false;
@@ -2174,20 +2169,10 @@
             // 
             // Danhsach
             // 
-            this.Danhsach.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.danhSáchBộSưuTậpToolStripMenuItem});
             this.Danhsach.Name = "Danhsach";
             this.Danhsach.Size = new System.Drawing.Size(161, 22);
             this.Danhsach.Text = "Thêm vào bộ sưu tập";
-            // 
-            // danhSáchBộSưuTậpToolStripMenuItem
-            // 
-            this.danhSáchBộSưuTậpToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
-            this.danhSáchBộSưuTậpToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.danhSáchBộSưuTậpToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.danhSáchBộSưuTậpToolStripMenuItem.Name = "danhSáchBộSưuTậpToolStripMenuItem";
-            this.danhSáchBộSưuTậpToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
-            this.danhSáchBộSưuTậpToolStripMenuItem.Text = "Bookmark";
+            this.Danhsach.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Danhsach_DropDownItemClicked);
             // 
             // họcTừToolStripMenuItem
             // 
@@ -2215,6 +2200,7 @@
             this.Text = "VietDict";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.XtraForm1_FormClosing);
             this.Load += new System.EventHandler(this.XtraForm1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.XtraForm1_KeyDown);
             this.panel4.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
@@ -2256,7 +2242,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel2)).EndInit();
             this.flyoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel4)).EndInit();
             this.flyoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl4)).EndInit();
@@ -2271,6 +2256,7 @@
             this.panel26.ResumeLayout(false);
             this.panel26.PerformLayout();
             this.panel27.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel3)).EndInit();
             this.flyoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl3)).EndInit();
@@ -2472,7 +2458,6 @@
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
         private System.Windows.Forms.ToolStripMenuItem Danhsach;
-        private System.Windows.Forms.ToolStripMenuItem danhSáchBộSưuTậpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem họcTừToolStripMenuItem;
     }
 }

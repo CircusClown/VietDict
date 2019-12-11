@@ -17,6 +17,7 @@ namespace VietDict
         process mainProc;
         TreeNode curNode;
         string selectCollection = "";
+        string tempSelectCollection = "";
         bool isBookmarked;
         public XtraForm1()
         {
@@ -44,16 +45,6 @@ namespace VietDict
 
         protected override void OnKeyPress(KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-                onSearch();
-            else if (e.KeyChar == (char)Keys.Down)
-                traverseWordList(1);
-            else if (e.KeyChar == (char)Keys.Up)
-                traverseWordList(0);
-            else if (e.KeyChar == (char)Keys.Left)
-                traverseHistory(0);
-            else if (e.KeyChar == (char)Keys.Right)
-                traverseHistory(1);
         }
 
         private void Button5_Click(object sender, EventArgs e)
@@ -323,7 +314,17 @@ namespace VietDict
                 //DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "OK", Result = System.Windows.Forms.DialogResult.OK };
                 //action.Commands.Add(command1);
                 //DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action);
-                flyoutPanel3.Height =(int)(ClientSize.Height*0.8);
+                listView6.Items.Clear();
+                selectCollection = "";
+                List<string> colList = mainProc.collectionListing();
+                if (colList.Count > 0)
+                {
+                    foreach (var entry in colList)
+                    {
+                        listView6.Items.Add(new ListViewItem(new string[] { entry }, "hiclipart.com (4).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null));
+                    }
+                }
+                flyoutPanel3.Height = (int)(ClientSize.Height * 0.8);
                 flyoutPanel3.ShowPopup();
             }
             if (listView1.SelectedIndices[0] == 1)
@@ -342,6 +343,18 @@ namespace VietDict
             }
         }
 
+        private void Button14_Click(object sender, EventArgs e)
+        {
+            if (textBox4.Text == "") return;
+            textBox5.Text = mainProc.translatePhrase(textBox4.Text);
+        }
+
+        private void Button15_Click(object sender, EventArgs e)
+        {
+            if (textBox4.Text == "") return;
+            mainProc.speakWord(textBox4.Text);
+        }
+
         private void Button16_Click(object sender, EventArgs e)
         {
             contextMenuStrip1.Show(button16, button16.Size.Width, button16.Size.Height);
@@ -356,16 +369,30 @@ namespace VietDict
 
         }
 
+        //flyoutPanel5, xtraTabControl3: meaning, textBox7-8: pronounce+word, button26-27-28: ?-save-image, richTextBox5-6: base-special meaningBox 
         private void Button25_Click(object sender, EventArgs e)
         {
+            //word edit
             flyoutPanel5.Height = panel8.Height;
             flyoutPanel5.ShowPopup();
+            string pronounce;
+            richTextBox5.Text = mainProc.outputWordBaseInfo(curNode.Text, out pronounce);
+            richTextBox6.Text = mainProc.outputWordSpecialInfo(curNode.Text);
+            textBox7.Text = pronounce;
+            textBox8.Text = curNode.Text;
+            textBox8.Enabled = false;
         }
 
         private void Button23_Click(object sender, EventArgs e)
         {
+            //word insert
             flyoutPanel5.Height = panel8.Height;
             flyoutPanel5.ShowPopup();
+            richTextBox5.Text = "-> Danh từ\n\t- Nghĩa\n\t\t+ Ví dụ\n\t\t* Nghĩa ví dụ";
+            richTextBox6.Text = "";
+            textBox7.Text = "";
+            textBox8.Text = "";
+            textBox8.Enabled = true;
         }
 
         private void Button26_Click(object sender, EventArgs e)
@@ -377,12 +404,23 @@ namespace VietDict
             }
         }
 
+        //right mouse on word
         private void TreeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             curNode = e.Node;
             reloadMeaningPanel();
             if (e.Button==MouseButtons.Right)
             {
+                Danhsach.DropDownItems.Clear();
+                List<string> colList = mainProc.collectionListing();
+                if (colList.Count > 0)
+                {
+                    foreach (var entry in colList)
+                    {
+                        Danhsach.DropDownItems.Add(entry);
+                    }
+                }
+                
                 contextMenuStrip3.Show(treeView1,e.Location);
                 foreach (ToolStripMenuItem i in contextMenuStrip3.Items)
                 {
@@ -399,6 +437,110 @@ namespace VietDict
         private void ContextMenuStrip3_MouseClick(object sender, MouseEventArgs e)
         {
         }
-    }
 
+        private void Button9_Click(object sender, EventArgs e)
+        {
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction action = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction() { Caption = "Xác nhận", Description = "Bạn muốn xóa bộ sưu tập này??" };
+            Predicate<DialogResult> predicate = canCloseFunc;
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "Có", Result = System.Windows.Forms.DialogResult.Yes };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "Không", Result = System.Windows.Forms.DialogResult.No };
+            action.Commands.Add(command1);
+            action.Commands.Add(command2);
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties properties = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties();
+            properties.ButtonSize = new Size(100, 40);
+            properties.Style = DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutStyle.MessageBox;
+            if (DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action, properties, predicate) == System.Windows.Forms.DialogResult.Yes) {/*insert delete action here*/ }
+        }
+
+        private void Button10_Click(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "")
+            {
+                return;
+            }
+            mainProc.insertCollection(textBox2.Text);
+            listView2.Items.Clear();
+            listView6.Items.Clear();
+            listView2.Items.Add(new ListViewItem(new string[] { "Tất cả các từ" }, "hiclipart.com (4).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null));
+            List<string> colList = mainProc.collectionListing();
+            if (colList.Count > 0)
+            {
+                foreach (var entry in colList)
+                {
+                    listView2.Items.Add(new ListViewItem(new string[] { entry }, "hiclipart.com (4).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null));
+                    listView6.Items.Add(new ListViewItem(new string[] { entry }, "hiclipart.com (4).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null));
+                }
+            }
+        }
+
+        private void Button24_Click(object sender, EventArgs e)
+        {
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction action = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction() { Caption = "Xác nhận", Description = "Bạn muốn xóa từ này??" };
+            Predicate<DialogResult> predicate = canCloseFunc;
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "Có", Result = System.Windows.Forms.DialogResult.Yes };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "Không", Result = System.Windows.Forms.DialogResult.No };
+            action.Commands.Add(command1);
+            action.Commands.Add(command2);
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties properties = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties();
+            properties.ButtonSize = new Size(100, 40);
+            properties.Style = DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutStyle.MessageBox;
+            if (DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action, properties, predicate) == System.Windows.Forms.DialogResult.Yes) {/*insert delete action here*/ }
+
+        }
+
+        private void ListView6_Click(object sender, EventArgs e)
+        {
+            if (listView6.SelectedItems.Count < 1) return;
+            tempSelectCollection = listView6.SelectedItems[0].Text;
+            List<string> result = mainProc.collectionWordListing(listView6.SelectedItems[0].Text);
+            listView7.Items.Clear();
+            listView7.BeginUpdate();
+            foreach (var entry in result)
+            {
+                listView7.Items.Add(entry);
+            }
+            listView7.EndUpdate();
+        }
+
+        private void XtraForm1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                onSearch();
+            else if (e.KeyCode == Keys.Down)
+                traverseWordList(1);
+            else if (e.KeyCode == Keys.Up)
+                traverseWordList(0);
+            //else if (e.KeyCode == Keys.Left)
+            //    traverseHistory(0);
+            //else if (e.KeyCode == Keys.Right)
+            //    traverseHistory(1);
+        }
+
+        private void Danhsach_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            mainProc.addToCollection(curNode.Text, e.ClickedItem.Text);
+        }
+
+        private void Button12_Click(object sender, EventArgs e)
+        {
+            if (listView7.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Hãy chọn ít nhất 1 từ để xóa khỏi bộ sưu tập");
+                return;
+            } //replace with flyout dialog
+            foreach(ListViewItem word in listView7.SelectedItems)
+            {
+                mainProc.removeFromCollection(word.Text, tempSelectCollection);
+                List<string> result = mainProc.collectionWordListing(listView6.SelectedItems[0].Text);
+                listView7.Items.Clear();
+                listView7.BeginUpdate();
+                foreach (var entry in result)
+                {
+                    listView7.Items.Add(entry);
+                }
+                listView7.EndUpdate();
+            }
+        }
+        //collection panel, collection list: listview6, col edit-delete-insert: button8-9-10, word list: listview7, bookmark name box: textbox2
+    }
 }

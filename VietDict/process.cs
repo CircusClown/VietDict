@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Speech.Synthesis;
+using RestSharp;
+using System.Configuration;
+using System.Windows.Forms;
 
 namespace VietDict
 {
@@ -69,7 +72,7 @@ namespace VietDict
             if (searchHistory.Count > 50)
             {
                 searchHistory.RemoveAt(0);
-                
+
             }
             historyIndex = searchHistory.Count - 1;
 
@@ -119,6 +122,33 @@ namespace VietDict
                 res[i] = Regex.Replace(res[i], "<sq>", "'");
             }
             return res;
+        }
+
+        public bool insertCollection(string colName)
+        {
+            return mainaccess.insertCollection(colName);
+        }
+
+        public string translatePhrase(string query)
+        {
+            //MOVE API KEY TO SOMEWHERE SECURE ASAP
+            string URL = "https://translation.googleapis.com/language/translate/v2?key=" + ConfigurationManager.AppSettings["GoogleAPIKey"] + "&source=en&target=vi&q=" + query;
+            //string urlParameters = "?api_key=123";
+            var client = new RestClient(URL);
+            var response = client.Execute(new RestRequest());
+            dynamic stuff = Newtonsoft.Json.JsonConvert.DeserializeObject(response.Content);
+
+            return stuff.data.translations[0].translatedText;
+        }
+
+        internal void addToCollection(string word, string col)
+        {
+            mainaccess.addToCollection(word, col);
+        }
+
+        internal void removeFromCollection(string word, string col)
+        {
+            mainaccess.removeFromCollection(word, col);
         }
     }
 }

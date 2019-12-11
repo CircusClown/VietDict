@@ -221,6 +221,33 @@ namespace VietDict
             }
         }
 
+        public bool insertCollection(string col)
+        {
+            if (!checkConnection()) return false;
+
+            SqlCommand queryCmd = new SqlCommand();
+            queryCmd.CommandType = CommandType.Text;
+
+            queryCmd.CommandText = "INSERT INTO BOSUUTAP VALUES (@col)";
+
+            SqlParameter param_tenbst = new SqlParameter("@col", SqlDbType.NVarChar);
+            param_tenbst.Value = col;
+            queryCmd.Parameters.Add(param_tenbst);
+            queryCmd.Connection = sqlcnt;
+
+            try
+            {
+                int res = queryCmd.ExecuteNonQuery();
+                if (res > 0) return true;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
+        }
+
         public bool removeFromCollection(string query, string col)
         {
             if (!checkConnection()) return false;
@@ -353,6 +380,78 @@ namespace VietDict
                 sqlrdr.Close();
                 return false;
             }
+        }
+
+        public bool removeWord(string query)
+        {
+            //TODO: remove all special meaning and collection-word binding
+            if (!checkConnection()) return false;
+            SqlCommand specialMeanRemoveCmd = new SqlCommand();
+            specialMeanRemoveCmd.CommandType = CommandType.Text;
+            SqlCommand collectionBindRemoveCmd = new SqlCommand();
+            collectionBindRemoveCmd.CommandType = CommandType.Text;
+            specialMeanRemoveCmd.CommandText = "DELETE FROM TUCHUYENNGANH WHERE TenTu=@word";
+            collectionBindRemoveCmd.CommandText = "DELETE FROM LUUTU WHERE TenTu=@word";
+            SqlParameter param_tentu = new SqlParameter("@word", SqlDbType.VarChar);
+            param_tentu.Value = query;
+            specialMeanRemoveCmd.Parameters.Add(param_tentu);
+            collectionBindRemoveCmd.Parameters.Add(param_tentu);
+
+            //remove said word
+            SqlCommand removeCmd = new SqlCommand();
+            removeCmd.CommandType = CommandType.Text;
+            removeCmd.CommandText = "DELETE FROM TU WHERE TenTu=@word";
+            removeCmd.Parameters.Add(param_tentu);
+
+            try
+            {
+                int res = specialMeanRemoveCmd.ExecuteNonQuery();
+                res += collectionBindRemoveCmd.ExecuteNonQuery();
+                res += removeCmd.ExecuteNonQuery();
+                if (res == 0) return false;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
+        }
+
+        public bool removeCollection(string col)
+        {
+            //TODO: remove all collection-word binding
+            if (!checkConnection()) return false;
+            SqlCommand collectionBindRemoveCmd = new SqlCommand();
+            collectionBindRemoveCmd.CommandType = CommandType.Text;
+            collectionBindRemoveCmd.CommandText = "DELETE FROM LUUTU WHERE TenBST=@col";
+            SqlParameter param_tenbst = new SqlParameter("@col", SqlDbType.NVarChar);
+            param_tenbst.Value = col;
+            collectionBindRemoveCmd.Parameters.Add(param_tenbst);
+
+            //remove said collection
+            SqlCommand removeCmd = new SqlCommand();
+            removeCmd.CommandType = CommandType.Text;
+            removeCmd.CommandText = "DELETE FROM BOSUUTAP WHERE TenBST=@col";
+            removeCmd.Parameters.Add(param_tenbst);
+
+            try
+            {
+                int res = collectionBindRemoveCmd.ExecuteNonQuery();
+                res += removeCmd.ExecuteNonQuery();
+                if (res == 0) return false;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
+        }
+
+        public void saveWord(string word, string pronounce, string bmean, string smean, string edit_target = "")
+        {
+            //TODO: a lot of stuffs here
         }
     }
 }
