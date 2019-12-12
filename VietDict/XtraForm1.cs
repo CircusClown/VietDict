@@ -195,12 +195,24 @@ namespace VietDict
         private void reloadMeaningPanel()
         {
             string pronounce;
-            richTextBox1.Text = mainProc.outputWordBaseInfo(curNode.Text, out pronounce);
+            string img_path;
+            richTextBox1.Text = mainProc.outputWordBaseInfo(curNode.Text, out pronounce, out img_path);
             FormatText();
+            if (img_path == "") pictureBox1.Visible = false;
+            else pictureBox1.Visible = true;
+            
+            if (img_path.StartsWith("img_data/"))       //default image data
+            {
+                //EDIT THIS BEFORE FINAL BUILD WITH: "/resources/" + img_path
+                pictureBox1.ImageLocation = AppDomain.CurrentDomain.GetData("SolutionDirectory") + "/Resources/" + img_path;
+            }
+            else pictureBox1.ImageLocation = img_path;
             richTextBox2.Text = mainProc.outputWordSpecialInfo(curNode.Text);
             label3.Text = curNode.Text;
             label4.Text = pronounce;
             isBookmarked = mainProc.isBookmarked(curNode.Text);
+
+            //Bookmark checking
             if (isBookmarked) { button4.Image = global::VietDict.Properties.Resources.untitled__23_; }
             else button4.Image = global::VietDict.Properties.Resources.untitled__13_;
         }
@@ -373,12 +385,15 @@ namespace VietDict
         private void Button25_Click(object sender, EventArgs e)
         {
             //word edit
+            if (curNode == null) return;
             flyoutPanel5.Height = panel8.Height;
             flyoutPanel5.ShowPopup();
             string pronounce;
-            richTextBox5.Text = mainProc.outputWordBaseInfo(curNode.Text, out pronounce);
+            string img_path;
+            richTextBox5.Text = mainProc.outputWordBaseInfo(curNode.Text, out pronounce, out img_path);
             richTextBox6.Text = mainProc.outputWordSpecialInfo(curNode.Text);
             textBox7.Text = pronounce;
+            textBox30.Text = img_path;
             textBox8.Text = curNode.Text;
             textBox8.Enabled = false;
         }
@@ -440,6 +455,7 @@ namespace VietDict
 
         private void Button9_Click(object sender, EventArgs e)
         {
+            //delete collection
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction action = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction() { Caption = "Xác nhận", Description = "Bạn muốn xóa bộ sưu tập này??" };
             Predicate<DialogResult> predicate = canCloseFunc;
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "Có", Result = System.Windows.Forms.DialogResult.Yes };
@@ -449,7 +465,24 @@ namespace VietDict
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties properties = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties();
             properties.ButtonSize = new Size(100, 40);
             properties.Style = DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutStyle.MessageBox;
-            if (DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action, properties, predicate) == System.Windows.Forms.DialogResult.Yes) {/*insert delete action here*/ }
+            if (DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action, properties, predicate) == System.Windows.Forms.DialogResult.Yes)
+            {
+                mainProc.removeCollection(tempSelectCollection);
+                listView7.Items.Clear();
+                tempSelectCollection = "";
+                listView2.Items.Clear();
+                listView6.Items.Clear();
+                listView2.Items.Add(new ListViewItem(new string[] { "Tất cả các từ" }, "hiclipart.com (4).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null));
+                List<string> colList = mainProc.collectionListing();
+                if (colList.Count > 0)
+                {
+                    foreach (var entry in colList)
+                    {
+                        listView2.Items.Add(new ListViewItem(new string[] { entry }, "hiclipart.com (4).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null));
+                        listView6.Items.Add(new ListViewItem(new string[] { entry }, "hiclipart.com (4).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null));
+                    }
+                }
+            }
         }
 
         private void Button10_Click(object sender, EventArgs e)
@@ -475,6 +508,7 @@ namespace VietDict
 
         private void Button24_Click(object sender, EventArgs e)
         {
+            //delete word
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction action = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction() { Caption = "Xác nhận", Description = "Bạn muốn xóa từ này??" };
             Predicate<DialogResult> predicate = canCloseFunc;
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "Có", Result = System.Windows.Forms.DialogResult.Yes };
@@ -539,6 +573,59 @@ namespace VietDict
                     listView7.Items.Add(entry);
                 }
                 listView7.EndUpdate();
+            }
+        }
+
+        private void Button27_Click(object sender, EventArgs e)
+        {
+            //Save button
+            bool res;
+            string resultMessage = "Lỗi không xác định xảy ra";
+            if (textBox8.Enabled == false)
+            {
+                //save edited entry
+                res = mainProc.saveWord(textBox8.Text, textBox30.Text, textBox7.Text, richTextBox5.Text, richTextBox6.Text, textBox8.Text);
+            }
+            else
+            {
+                //save new entry
+                res = mainProc.saveWord(textBox8.Text, textBox30.Text, textBox7.Text, richTextBox5.Text, richTextBox6.Text);
+            }
+
+            if (res == true) resultMessage = "Lưu từ vựng thành công";
+            else resultMessage = "Lưu từ vựng không thành công";
+
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction action = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction() { Caption = "Thông báo", Description = resultMessage };
+            Predicate<DialogResult> predicate = canCloseFunc;
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "OK", Result = System.Windows.Forms.DialogResult.OK };
+            action.Commands.Add(command1);
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties properties = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties();
+            properties.ButtonSize = new Size(100, 40);
+            properties.Style = DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutStyle.MessageBox;
+            DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action, properties, predicate);
+
+            if (textBox8.Enabled == false) reloadMeaningPanel();
+            flyoutPanel5.HidePopup();
+
+            textBox30.Text = "";
+
+            this.Activate();
+            
+        }
+
+        private void Button28_Click(object sender, EventArgs e)
+        {
+            string filePath = string.Empty;
+            OpenFileDialog a = new OpenFileDialog();
+            a.InitialDirectory = "c:\\";
+            a.Filter = "Image File (*.png, *.jpg, *.bmp)|*.jpg;*.png;*.bmp";
+            a.FilterIndex = 1;
+            a.RestoreDirectory = true;
+
+            if (a.ShowDialog() == DialogResult.OK)
+            {
+                //Get the path of specified file
+                textBox30.Text = a.FileName;
             }
         }
         //collection panel, collection list: listview6, col edit-delete-insert: button8-9-10, word list: listview7, bookmark name box: textbox2

@@ -37,16 +37,16 @@ namespace VietDict
         }
         public List<string> wordQuery(string query)
         {
-            List<string> res = mainaccess.wordQuery(query);
+            List<string> res = mainaccess.wordQuery(Regex.Replace(query, "'", "<sq>"));
             for (int i = 0; i < res.Count; i++)
             {
                 res[i] = Regex.Replace(res[i], "<sq>", "'");
             }
             return res;
         }
-        public string outputWordBaseInfo(string query, out string pronounce)
+        public string outputWordBaseInfo(string query, out string pronounce, out string img_path)
         {
-            string res = mainaccess.recallWordInfo(query, out pronounce);
+            string res = mainaccess.recallWordInfo(Regex.Replace(query, "'", "<sq>"), out pronounce, out img_path);
             if (res == null || res == "") return "Không có nghĩa cơ bản cho từ này";
             res = Regex.Replace(res, "<sq>", "'");
             res = Regex.Replace(res, "<dq>", "\"");
@@ -56,7 +56,7 @@ namespace VietDict
         }
         public string outputWordSpecialInfo(string query)
         {
-            string res = mainaccess.specialtyWordMean(query);
+            string res = mainaccess.specialtyWordMean(Regex.Replace(query, "'", "<sq>"));
             if (res == null || res == "") return "Không có nghĩa chuyên ngành cho từ này";
             res = Regex.Replace(res, "<sq>", "'");
             return res;
@@ -116,7 +116,7 @@ namespace VietDict
 
         internal List<string> wordCollectionQuery(string query, string selectCollection)
         {
-            List<string> res = mainaccess.queryCollectionWord(query, selectCollection);
+            List<string> res = mainaccess.queryCollectionWord(Regex.Replace(query, "'", "<sq>"), selectCollection);
             for (int i = 0; i < res.Count; i++)
             {
                 res[i] = Regex.Replace(res[i], "<sq>", "'");
@@ -143,12 +143,28 @@ namespace VietDict
 
         internal void addToCollection(string word, string col)
         {
-            mainaccess.addToCollection(word, col);
+            mainaccess.addToCollection(Regex.Replace(word, "'", "<sq>"), col);
         }
 
         internal void removeFromCollection(string word, string col)
         {
-            mainaccess.removeFromCollection(word, col);
+            mainaccess.removeFromCollection(Regex.Replace(word, "'", "<sq>"), col);
+        }
+        internal void removeCollection(string col)
+        {
+            mainaccess.removeCollection(col);
+        }
+
+        internal bool saveWord(string word, string illu_path, string pronounce, string bmean, string smean, string edit_target = "")
+        {
+            bmean = Regex.Replace(bmean, "'", "<sq>");
+            bmean = Regex.Replace(bmean, "\"", "<dq>");
+            bmean = Regex.Replace(bmean, "-> ", "Loại từ ");
+            pronounce = Regex.Replace(pronounce, "'", "<sq>");
+            edit_target = Regex.Replace(edit_target, "'", "<sq>");
+            word = Regex.Replace(word, "'", "<sq>");
+            bool res = mainaccess.saveWord(word, illu_path, pronounce, bmean, smean, edit_target);
+            return res;
         }
     }
 }
