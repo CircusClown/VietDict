@@ -128,6 +128,18 @@ namespace VietDict
             //If isBookmarked == true unbookmark
             //If isBookmarked == false bookmark
             bool res;
+            if (curNode == null)
+            {
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction action2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction() { Caption = "Thông báo", Description = "Xin hãy chọn từ trước khi bookmark" };
+                Predicate<DialogResult> predicate2 = canCloseFunc;
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command1_2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "OK", Result = System.Windows.Forms.DialogResult.OK };
+                action2.Commands.Add(command1_2);
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties properties2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties();
+                properties2.ButtonSize = new Size(100, 40);
+                properties2.Style = DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutStyle.MessageBox;
+                DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action2, properties2, predicate2);
+                return;
+            }
             if (isBookmarked)
             {
                 res = mainProc.removeFromBookmark(curNode.Text);
@@ -177,6 +189,14 @@ namespace VietDict
                 if (richTextBox1.SelectedText.Contains("->") == true)
                 {
                     richTextBox1.SelectionColor = Color.Aqua;
+                    richTextBox1.SelectionFont = new Font("Segoe UI", 16, FontStyle.Regular);
+                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 2);
+                    richTextBox1.SelectedText = "\u21D2";
+                }
+
+                if (richTextBox1.SelectedText.Contains("->") == true)
+                {
+                    richTextBox1.SelectionColor = Color.Yellow;
                     richTextBox1.SelectionFont = new Font("Segoe UI", 16, FontStyle.Regular);
                     richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 2);
                     richTextBox1.SelectedText = "\u21D2";
@@ -292,27 +312,14 @@ namespace VietDict
             if (listView2.SelectedIndices[0] == 0)
             {
                 selectCollection = "";
-                List<string> result = mainProc.wordListing();
-                treeView1.BeginUpdate();
-                treeView1.Nodes.Clear();
-                foreach (var entry in result)
-                {
-                    treeView1.Nodes.Add(entry);
-                }
-                treeView1.EndUpdate();
+                onSearch();
 
             }
             else
             {
+                textBox1.Text = "";
                 selectCollection = listView2.SelectedItems[0].Text;
-                List<string> result = mainProc.collectionWordListing(selectCollection);
-                treeView1.BeginUpdate();
-                treeView1.Nodes.Clear();
-                foreach (var entry in result)
-                {
-                    treeView1.Nodes.Add(entry);
-                }
-                treeView1.EndUpdate();
+                onSearch();
             }
         }
 
@@ -434,13 +441,15 @@ namespace VietDict
                     {
                         Danhsach.DropDownItems.Add(entry);
                     }
+                    foreach (ToolStripMenuItem i in Danhsach.DropDownItems)
+                    {
+                        //IF DARK MODE
+                        i.BackColor = Color.FromArgb(41, 45, 51);
+                        i.ForeColor = Color.White;
+                    }
                 }
                 
                 contextMenuStrip3.Show(treeView1,e.Location);
-                foreach (ToolStripMenuItem i in contextMenuStrip3.Items)
-                {
-                    i.ForeColor = Color.White;
-                }
             }
         }
 
@@ -508,18 +517,55 @@ namespace VietDict
 
         private void Button24_Click(object sender, EventArgs e)
         {
-            //delete word
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction action = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction() { Caption = "Xác nhận", Description = "Bạn muốn xóa từ này??" };
-            Predicate<DialogResult> predicate = canCloseFunc;
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "Có", Result = System.Windows.Forms.DialogResult.Yes };
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "Không", Result = System.Windows.Forms.DialogResult.No };
-            action.Commands.Add(command1);
-            action.Commands.Add(command2);
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties properties = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties();
-            properties.ButtonSize = new Size(100, 40);
-            properties.Style = DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutStyle.MessageBox;
-            if (DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action, properties, predicate) == System.Windows.Forms.DialogResult.Yes) {/*insert delete action here*/ }
+            //delete word (permanent or from collection - context based)
 
+
+            if (curNode == null)
+            {
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction action2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction() { Caption = "Thông báo", Description = "Xin hãy chọn từ trước khi xóa" };
+                Predicate<DialogResult> predicate2 = canCloseFunc;
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command1_2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "OK", Result = System.Windows.Forms.DialogResult.OK };
+                action2.Commands.Add(command1_2);
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties properties2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties();
+                properties2.ButtonSize = new Size(100, 40);
+                properties2.Style = DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutStyle.MessageBox;
+                DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action2, properties2, predicate2);
+                return;
+            }
+            if (selectCollection != "")
+            {
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction col_action = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction() { Caption = "Xác nhận", Description = "Bạn muốn xóa từ này ra khỏi bộ sưu tập?" };
+                Predicate<DialogResult> col_predicate = canCloseFunc;
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand col_command1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "Có", Result = System.Windows.Forms.DialogResult.Yes };
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand col_command2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "Không", Result = System.Windows.Forms.DialogResult.No };
+                col_action.Commands.Add(col_command1);
+                col_action.Commands.Add(col_command2);
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties col_properties = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties();
+                col_properties.ButtonSize = new Size(100, 40);
+                col_properties.Style = DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutStyle.MessageBox;
+                if (DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, col_action, col_properties, col_predicate) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    mainProc.removeFromCollection(curNode.Text, selectCollection);
+                    onSearch();
+                }
+            }
+            else
+            {
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction action = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction() { Caption = "Xác nhận", Description = "Bạn muốn xóa từ này vĩnh viễn??" };
+                Predicate<DialogResult> predicate = canCloseFunc;
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "Có", Result = System.Windows.Forms.DialogResult.Yes };
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "Không", Result = System.Windows.Forms.DialogResult.No };
+                action.Commands.Add(command1);
+                action.Commands.Add(command2);
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties properties = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties();
+                properties.ButtonSize = new Size(100, 40);
+                properties.Style = DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutStyle.MessageBox;
+                if (DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action, properties, predicate) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    mainProc.removeWord(curNode.Text);
+                    onSearch();
+                }
+            }
         }
 
         private void ListView6_Click(object sender, EventArgs e)
@@ -559,7 +605,14 @@ namespace VietDict
         {
             if (listView7.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Hãy chọn ít nhất 1 từ để xóa khỏi bộ sưu tập");
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction action2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction() { Caption = "Thông báo", Description = "Hãy chọn ít nhất 1 từ để xóa khỏi bộ sưu tập" };
+                Predicate<DialogResult> predicate2 = canCloseFunc;
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command1_2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "OK", Result = System.Windows.Forms.DialogResult.OK };
+                action2.Commands.Add(command1_2);
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties properties2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties();
+                properties2.ButtonSize = new Size(100, 40);
+                properties2.Style = DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutStyle.MessageBox;
+                DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action2, properties2, predicate2);
                 return;
             } //replace with flyout dialog
             foreach(ListViewItem word in listView7.SelectedItems)

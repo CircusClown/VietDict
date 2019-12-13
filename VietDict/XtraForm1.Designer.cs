@@ -209,6 +209,7 @@
             this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Danhsach = new System.Windows.Forms.ToolStripMenuItem();
             this.họcTừToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xóaKhỏiHọcTừToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -666,6 +667,7 @@
             this.button24.Size = new System.Drawing.Size(75, 31);
             this.button24.TabIndex = 1;
             this.button24.UseVisualStyleBackColor = true;
+            this.button24.Click += new System.EventHandler(this.Button24_Click);
             // 
             // button25
             // 
@@ -2229,14 +2231,16 @@
             this.contextMenuStrip3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Danhsach,
-            this.họcTừToolStripMenuItem});
+            this.họcTừToolStripMenuItem,
+            this.xóaKhỏiHọcTừToolStripMenuItem});
             this.contextMenuStrip3.Name = "contextMenuStrip3";
             this.contextMenuStrip3.ShowImageMargin = false;
-            this.contextMenuStrip3.Size = new System.Drawing.Size(162, 48);
+            this.contextMenuStrip3.Size = new System.Drawing.Size(162, 70);
             this.contextMenuStrip3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ContextMenuStrip3_MouseClick);
             // 
             // Danhsach
             // 
+            this.Danhsach.ForeColor = System.Drawing.Color.White;
             this.Danhsach.Name = "Danhsach";
             this.Danhsach.Size = new System.Drawing.Size(161, 22);
             this.Danhsach.Text = "Thêm vào bộ sưu tập";
@@ -2244,9 +2248,17 @@
             // 
             // họcTừToolStripMenuItem
             // 
+            this.họcTừToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.họcTừToolStripMenuItem.Name = "họcTừToolStripMenuItem";
             this.họcTừToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.họcTừToolStripMenuItem.Text = "Học Từ";
+            this.họcTừToolStripMenuItem.Text = "Thêm vào học từ";
+            // 
+            // xóaKhỏiHọcTừToolStripMenuItem
+            // 
+            this.xóaKhỏiHọcTừToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.xóaKhỏiHọcTừToolStripMenuItem.Name = "xóaKhỏiHọcTừToolStripMenuItem";
+            this.xóaKhỏiHọcTừToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.xóaKhỏiHọcTừToolStripMenuItem.Text = "Xóa khỏi học từ";
             // 
             // XtraForm1
             // 
@@ -2534,5 +2546,6 @@
         private System.Windows.Forms.Button button27;
         private System.Windows.Forms.Button button26;
         private System.Windows.Forms.Button button28;
+        private System.Windows.Forms.ToolStripMenuItem xóaKhỏiHọcTừToolStripMenuItem;
     }
 }

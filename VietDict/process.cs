@@ -137,7 +137,7 @@ namespace VietDict
             var client = new RestClient(URL);
             var response = client.Execute(new RestRequest());
             dynamic stuff = Newtonsoft.Json.JsonConvert.DeserializeObject(response.Content);
-
+            if (stuff.data.translations[0].translatedText == null) return "<Dịch thất bại, xin hãy kiểm tra kết nối Internet>";
             return stuff.data.translations[0].translatedText;
         }
 
@@ -164,6 +164,12 @@ namespace VietDict
             edit_target = Regex.Replace(edit_target, "'", "<sq>");
             word = Regex.Replace(word, "'", "<sq>");
             bool res = mainaccess.saveWord(word, illu_path, pronounce, bmean, smean, edit_target);
+            return res;
+        }
+
+        internal bool removeWord(string word)
+        {
+            bool res = mainaccess.removeWord(Regex.Replace(word, "'", "<sq>"));
             return res;
         }
     }
