@@ -25,6 +25,10 @@ namespace VietDict
         int light = 1;
         Color backcolor = Color.White;
         Color forecolor = Color.Black;
+        int wordsize = 1;
+        int hoctu = 0;
+        int bigword = 16;
+        int normalsize = 12;
         public XtraForm1()
         {
 
@@ -38,6 +42,9 @@ namespace VietDict
             }
             treeView1.EndUpdate();
 
+            ListViewItem listAllItem = new ListViewItem(new string[] { "Tất cả các từ" }, 0, System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
+            listAllItem.Tag = "control";
+            listView2.Items.Add(listAllItem);
             List<string> colList = mainProc.collectionListing();
             if (colList.Count > 0)
             {
@@ -45,6 +52,8 @@ namespace VietDict
                 {
                     ListViewItem newlistviewitem = new ListViewItem(new string[] { entry }, 0, System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
                     newlistviewitem.Tag = "control";
+                    newlistviewitem.ForeColor = forecolor;
+                    newlistviewitem.BackColor = backcolor;
                     listView2.Items.Add(newlistviewitem);
                 }
             }
@@ -59,6 +68,45 @@ namespace VietDict
         {
             //retrieve Next History
             traverseHistory(1);
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            //Bookmark button
+            //If isBookmarked == true unbookmark
+            //If isBookmarked == false bookmark
+            bool res;
+            if (curNode == null)
+            {
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction action2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction() { Caption = "Thông báo", Description = "Xin hãy chọn từ trước khi bookmark" };
+                Predicate<DialogResult> predicate2 = canCloseFunc;
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command1_2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "OK", Result = System.Windows.Forms.DialogResult.OK };
+                action2.Commands.Add(command1_2);
+                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties properties2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties();
+                properties2.ButtonSize = new Size(100, 40);
+                properties2.Style = DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutStyle.MessageBox;
+                DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action2, properties2, predicate2);
+                return;
+            }
+            if (isBookmarked)
+            {
+                res = mainProc.removeFromBookmark(curNode.Text);
+                if (res)
+                {
+                    isBookmarked = false;
+                    if (light == 0) button4.ImageIndex = 2;
+                    else if(light==1) button4.ImageIndex = 3;
+                }
+            }
+            else
+            {
+                res = mainProc.addToBookmark(curNode.Text);
+                {
+                    isBookmarked = true;
+                    if (light == 0) button4.ImageIndex = 0;
+                    else if(light ==1) button4.ImageIndex = 1;
+                }
+            }
         }
 
         private void Button3_Click(object sender, EventArgs e)
@@ -130,43 +178,6 @@ namespace VietDict
             reloadMeaningPanel();
         }
 
-        private void Button4_Click(object sender, EventArgs e)
-        {
-            //Bookmark button
-            //If isBookmarked == true unbookmark
-            //If isBookmarked == false bookmark
-            bool res;
-            if (curNode == null)
-            {
-                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction action2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutAction() { Caption = "Thông báo", Description = "Xin hãy chọn từ trước khi bookmark" };
-                Predicate<DialogResult> predicate2 = canCloseFunc;
-                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command1_2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "OK", Result = System.Windows.Forms.DialogResult.OK };
-                action2.Commands.Add(command1_2);
-                DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties properties2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties();
-                properties2.ButtonSize = new Size(100, 40);
-                properties2.Style = DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutStyle.MessageBox;
-                DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action2, properties2, predicate2);
-                return;
-            }
-            if (isBookmarked)
-            {
-                res = mainProc.removeFromBookmark(curNode.Text);
-                if (res)
-                {
-                    isBookmarked = false;                    
-                    button4.ImageIndex=button4.ImageIndex+2;
-                }
-            }
-            else
-            {
-                res = mainProc.addToBookmark(curNode.Text);
-                {
-                    isBookmarked = true;
-                    button4.ImageIndex= button4.ImageIndex-2;
-                }
-            }
-        }
-
         private void FormatText()
         {
             int selectionstart = richTextBox1.SelectionStart;
@@ -175,44 +186,48 @@ namespace VietDict
             {
                 richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), richTextBox1.Lines[i].Length);
                 string rtbstr = richTextBox1.SelectedText;
-                
 
-                if (Regex.Match(rtbstr,@"^\s*\+").Length != 0) 
+
+                if (Regex.Match(rtbstr, @"^\s*\+").Length != 0)
                 {
-                    richTextBox1.SelectionColor = Color.FromArgb(191, 201, 38);               
+                    richTextBox1.SelectionColor = Color.FromArgb(191, 201, 38);
+                    if (light == 0) richTextBox1.SelectionColor = invert(richTextBox1.SelectionColor);
                     richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 5);
                     richTextBox1.SelectionColor = Color.Aqua;
+                    if (light == 0) richTextBox1.SelectionColor = invert(richTextBox1.SelectionColor);
                 }
                 if (Regex.Match(rtbstr, @"^\s*\*").Length != 0)
                 {
                     richTextBox1.SelectionColor = Color.FromArgb(191, 150, 100);
+                    if (light == 0) richTextBox1.SelectionColor = invert(richTextBox1.SelectionColor);
                     richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 5);
                     richTextBox1.SelectionColor = Color.Aqua;
+                    if (light == 0) richTextBox1.SelectionColor = invert(richTextBox1.SelectionColor);
                     richTextBox1.SelectedText = "\t\t =";
                 }
                 if ((Regex.Match(rtbstr, @"^\s*\-").Length != 0) && (Regex.Match(rtbstr, @"^\s*\->").Length == 0))
                 {
                     richTextBox1.SelectionColor = Color.LightBlue;
+                    if (light == 0) richTextBox1.SelectionColor = invert(richTextBox1.SelectionColor);
                     richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 4);
                     richTextBox1.SelectionColor = Color.Aqua;
+                    if (light == 0) richTextBox1.SelectionColor = invert(richTextBox1.SelectionColor);
                 }
                 if (Regex.Match(rtbstr, @"^\s*\->").Length != 0)
                 {
                     richTextBox1.SelectionColor = Color.Aqua;
-                    richTextBox1.SelectionFont = new Font("Segoe UI", 16, FontStyle.Regular);
+                    if (light == 0) richTextBox1.SelectionColor = invert(richTextBox1.SelectionColor);
+                    richTextBox1.SelectionFont = new Font("Segoe UI", bigword, FontStyle.Regular);
                     richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 2);
                     richTextBox1.SelectedText = "\u21D2";
-                }
 
-                if (richTextBox1.SelectedText.Contains("->") == true)
-                {
-                    richTextBox1.SelectionColor = Color.Yellow;
-                    richTextBox1.SelectionFont = new Font("Segoe UI", 16, FontStyle.Regular);
-                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 2);
-                    richTextBox1.SelectedText = "\u21D2";
                 }
             }
 
+        }
+        private Color invert(Color color)
+        {
+            return Color.FromArgb(255 - color.R, 255 - color.G, 255 - color.B);
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -220,10 +235,9 @@ namespace VietDict
             onSearch();
         }
 
-
-
         private void reloadMeaningPanel()
         {
+            if (curNode == null) return;
             string pronounce;
             string img_path;
             richTextBox1.Text = mainProc.outputWordBaseInfo(curNode.Text, out pronounce, out img_path);
@@ -243,8 +257,8 @@ namespace VietDict
             isBookmarked = mainProc.isBookmarked(curNode.Text);
 
             //Bookmark checking
-            if (isBookmarked) { button4.Image = global::VietDict.Properties.Resources.untitled__23_; }
-            else button4.Image = global::VietDict.Properties.Resources.untitled__13_;
+             if (isBookmarked) { if (light == 0) button4.ImageIndex = 0; else if(light ==1 )button4.ImageIndex = 1; }
+            else { if (light == 0) button4.ImageIndex = 2; else if (light == 1) button4.ImageIndex = 3; }
         }
 
         private void onSearch()
@@ -276,8 +290,18 @@ namespace VietDict
         {
             Thread.Sleep(2000);
             light = Int32.Parse(ConfigurationManager.AppSettings["LightMode"]);
+            wordsize = Int32.Parse(ConfigurationManager.AppSettings["WordSize"]);
+            hoctu = Int32.Parse(ConfigurationManager.AppSettings["Hoctuwhenstarting"]);
+
             if (light == 0) todarkmode();
             else tolightmode();
+            
+            if (hoctu == 0) { toggleSwitch2.IsOn = false; }
+            else if (hoctu == 1) { toggleSwitch2.IsOn = true; flyoutPanel4.Show(); }
+
+            comboBoxEdit1.SelectedIndex = wordsize;
+
+            wordsizechange();
         }
 
         private static bool canCloseFunc(DialogResult parameter)
@@ -299,7 +323,8 @@ namespace VietDict
             if (DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action, properties, predicate) == System.Windows.Forms.DialogResult.Yes)
             {
                 e.Cancel = false;
-                UpdateAppSettings("LightMode", light.ToString());                
+                UpdateAppSettings("LightMode", light.ToString());
+                UpdateAppSettings("WordSize", wordsize.ToString());
             }
             else e.Cancel = true;
         }
@@ -350,6 +375,20 @@ namespace VietDict
                 //DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "OK", Result = System.Windows.Forms.DialogResult.OK };
                 //action.Commands.Add(command1);
                 //DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action);
+                listView6.Items.Clear();
+                selectCollection = "";
+                List<string> colList = mainProc.collectionListing();
+                if (colList.Count > 0)
+                {
+                    foreach (var entry in colList)
+                    {
+                        ListViewItem newlistviewitem2 = new ListViewItem(new string[] { entry }, 0, System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
+                        newlistviewitem2.Tag = "control";
+                        newlistviewitem2.ForeColor = forecolor;
+                        newlistviewitem2.BackColor = backcolor;
+                        listView6.Items.Add(newlistviewitem2);
+                    }
+                }
                 flyoutPanel3.Height = (int)(ClientSize.Height * 0.8);
                 flyoutPanel3.ShowPopup();
             }
@@ -447,8 +486,7 @@ namespace VietDict
             {
                 Danhsach.DropDownItems.Clear();
                 List<string> colList = mainProc.collectionListing();
-                if (colList.Count == 0)
-
+                if (colList.Count > 0)
                 {
                     foreach (var entry in colList)
                     {
@@ -456,16 +494,16 @@ namespace VietDict
                     }
                     foreach (ToolStripMenuItem i in Danhsach.DropDownItems)
                     {
-                        //IF DARK MODE
-                        i.BackColor = Color.FromArgb(41, 45, 51);
-                        i.ForeColor = Color.White;
+                        //can't add to style group, proceed to adjust color manually
+                        i.ForeColor = forecolor;
+                        i.BackColor = backcolor;
                     }
                 }
                 foreach (ToolStripMenuItem i in contextMenuStrip3.Items) 
                 {
                     //IF DARK MODE
-                    i.BackColor = Color.FromArgb(41, 45, 51);
-                    i.ForeColor = Color.White;
+                    i.ForeColor = forecolor;
+                    i.BackColor = backcolor;
                 }
                 
                 contextMenuStrip3.Show(treeView1,e.Location);
@@ -500,14 +538,24 @@ namespace VietDict
                 tempSelectCollection = "";
                 listView2.Items.Clear();
                 listView6.Items.Clear();
-                listView2.Items.Add(new ListViewItem(new string[] { "Tất cả các từ" }, "hiclipart.com (4).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null));
+                ListViewItem listAllItem = new ListViewItem(new string[] { "Tất cả các từ" }, 0, System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
+                listAllItem.Tag = "control";
+                listView2.Items.Add(listAllItem);
                 List<string> colList = mainProc.collectionListing();
                 if (colList.Count > 0)
                 {
                     foreach (var entry in colList)
                     {
-                        listView2.Items.Add(new ListViewItem(new string[] { entry }, "hiclipart.com (4).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null));
-                        listView6.Items.Add(new ListViewItem(new string[] { entry }, "hiclipart.com (4).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null));
+                        ListViewItem newlistviewitem = new ListViewItem(new string[] { entry }, 0, System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
+                        newlistviewitem.Tag = "control";
+                        newlistviewitem.ForeColor = forecolor;
+                        newlistviewitem.BackColor = backcolor;
+                        listView2.Items.Add(newlistviewitem);
+                        ListViewItem newlistviewitem2 = new ListViewItem(new string[] { entry }, 0, System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
+                        newlistviewitem2.Tag = "control";
+                        newlistviewitem2.ForeColor = forecolor;
+                        newlistviewitem2.BackColor = backcolor;
+                        listView6.Items.Add(newlistviewitem2);
                     }
                 }
             }
@@ -515,6 +563,7 @@ namespace VietDict
 
         private void Button10_Click(object sender, EventArgs e)
         {
+            //add collection
             if (textBox2.Text == "")
             {
                 return;
@@ -522,14 +571,24 @@ namespace VietDict
             mainProc.insertCollection(textBox2.Text);
             listView2.Items.Clear();
             listView6.Items.Clear();
-            listView2.Items.Add(new ListViewItem(new string[] { "Tất cả các từ" }, "hiclipart.com (4).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null));
+            ListViewItem listAllItem = new ListViewItem(new string[] { "Tất cả các từ" }, 0, System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
+            listAllItem.Tag = "control";
+            listView2.Items.Add(listAllItem);
             List<string> colList = mainProc.collectionListing();
             if (colList.Count > 0)
             {
                 foreach (var entry in colList)
                 {
-                    listView2.Items.Add(new ListViewItem(new string[] { entry }, "hiclipart.com (4).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null));
-                    listView6.Items.Add(new ListViewItem(new string[] { entry }, "hiclipart.com (4).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null));
+                    ListViewItem newlistviewitem = new ListViewItem(new string[] { entry }, 0, System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
+                    newlistviewitem.Tag = "control";
+                    newlistviewitem.ForeColor = forecolor;
+                    newlistviewitem.BackColor = backcolor;
+                    listView2.Items.Add(newlistviewitem);
+                    ListViewItem newlistviewitem2 = new ListViewItem(new string[] { entry }, 0, System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
+                    newlistviewitem2.Tag = "control";
+                    newlistviewitem2.ForeColor = forecolor;
+                    newlistviewitem2.BackColor = backcolor;
+                    listView6.Items.Add(newlistviewitem2);
                 }
             }
         }
@@ -614,7 +673,7 @@ namespace VietDict
             //else if (e.KeyCode == Keys.Right)
             //    traverseHistory(1);
         }
-
+                
         private void Danhsach_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             mainProc.addToCollection(curNode.Text, e.ClickedItem.Text);
@@ -749,7 +808,7 @@ namespace VietDict
             listView1.LargeImageList = imageList4;
             listView2.LargeImageList = imageList6;
             listView3.LargeImageList = imageList4;
-            button4.ImageIndex = 0;
+            listView6.LargeImageList = imageList6;
         }
         private void tolightmode()
         {
@@ -768,7 +827,7 @@ namespace VietDict
             listView1.LargeImageList = imageList5;
             listView2.LargeImageList = imageList2;
             listView3.LargeImageList = imageList5;
-            button4.ImageIndex = 2;
+            listView6.LargeImageList = imageList2;
         }
         private void ToggleSwitch1_Toggled(object sender, EventArgs e)
         {
@@ -780,8 +839,8 @@ namespace VietDict
             {
                 tolightmode();
             }
+            this.reloadMeaningPanel();
         }
-
         private void BindingSource1_CurrentChanged(object sender, EventArgs e)
         {
 
@@ -797,6 +856,59 @@ namespace VietDict
             configuration.Save(ConfigurationSaveMode.Modified);
 
             ConfigurationManager.RefreshSection("appSettings");
+        }
+
+        private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxEdit1.SelectedIndex == 0) wordsize = 0;
+            else if (comboBoxEdit1.SelectedIndex == 1) wordsize = 1;
+            else if (comboBoxEdit1.SelectedIndex == 2) wordsize = 2;
+            wordsizechange();
+            this.reloadMeaningPanel();
+        }
+        private void ToggleSwitch2_Toggled(object sender, EventArgs e)
+        {
+            if (hoctu == 0) hoctu = 1;
+            else hoctu = 0;
+        }
+        private void wordsizechange()
+        {
+            if (wordsize == 0)
+            {
+                bigword = 16;
+                normalsize = 12;
+            }
+            else if (wordsize == 1)
+            {
+                bigword = 20;
+                normalsize = 14;
+            }
+            else if (wordsize == 2)
+            {
+                bigword = 24;
+                normalsize = 16;
+            }
+            richTextBox1.Font = richTextBox2.Font = richTextBox3.Font = richTextBox5.Font = richTextBox6.Font = new Font("Segoe UI", normalsize, FontStyle.Regular);
+            if (light == 0)
+            {
+                richTextBox2.ForeColor = Color.DarkBlue;
+                richTextBox3.ForeColor = Color.DarkBlue;
+                richTextBox5.ForeColor = Color.DarkBlue;
+                richTextBox6.ForeColor = Color.DarkBlue;
+            }
+            else
+            {
+                richTextBox2.ForeColor = Color.Aqua;
+                richTextBox3.ForeColor = Color.Aqua;
+                richTextBox5.ForeColor = Color.Aqua;
+                richTextBox6.ForeColor = Color.Aqua;
+            }
+            treeView1.Font = new Font("Segoe UI", normalsize, FontStyle.Regular);
+        }
+
+        private void trackBarControl1_EditValueChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
