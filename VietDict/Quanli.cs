@@ -32,5 +32,10 @@ namespace VietDict
         {
 
         }
+
+        private void Quanli_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

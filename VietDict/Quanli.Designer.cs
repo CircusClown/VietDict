@@ -46,50 +46,56 @@
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(259, 40);
+            this.simpleButton1.Location = new System.Drawing.Point(302, 52);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(119, 27);
+            this.simpleButton1.Size = new System.Drawing.Size(139, 35);
             this.simpleButton1.TabIndex = 0;
             this.simpleButton1.Text = "simpleButton1";
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(259, 75);
+            this.simpleButton2.Location = new System.Drawing.Point(302, 98);
+            this.simpleButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(119, 27);
+            this.simpleButton2.Size = new System.Drawing.Size(139, 35);
             this.simpleButton2.TabIndex = 1;
             this.simpleButton2.Text = "simpleButton2";
             // 
             // simpleButton3
             // 
-            this.simpleButton3.Location = new System.Drawing.Point(259, 108);
+            this.simpleButton3.Location = new System.Drawing.Point(302, 141);
+            this.simpleButton3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(119, 27);
+            this.simpleButton3.Size = new System.Drawing.Size(139, 35);
             this.simpleButton3.TabIndex = 2;
             this.simpleButton3.Text = "simpleButton3";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 42);
+            this.textBox1.Location = new System.Drawing.Point(17, 55);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(217, 21);
+            this.textBox1.Size = new System.Drawing.Size(252, 25);
             this.textBox1.TabIndex = 3;
             // 
             // Quanli
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(394, 268);
+            this.ClientSize = new System.Drawing.Size(457, 348);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.simpleButton3);
             this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.simpleButton1);
-            this.MaximumSize = new System.Drawing.Size(396, 301);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximumSize = new System.Drawing.Size(396, 308);
             this.MinimumSize = new System.Drawing.Size(392, 300);
             this.Name = "Quanli";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Bookmark";
+            this.Load += new System.EventHandler(this.Quanli_Load);
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

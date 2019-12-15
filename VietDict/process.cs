@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Speech.Synthesis;
+using System.Data.SqlClient;
 
 namespace VietDict
 {
@@ -24,6 +25,8 @@ namespace VietDict
             for (int i = 0; i < res.Count; i++)
             {
                 res[i] = Regex.Replace(res[i], "<sq>", "'");
+                
+
             }
             return res;
         }
@@ -119,6 +122,65 @@ namespace VietDict
                 res[i] = Regex.Replace(res[i], "<sq>", "'");
             }
             return res;
+        }
+        
+        
+        public List<string> wordlearn(int v)
+        {
+            List<string> WL = new List<string>();
+            int four = 0, three = 0, two = 0, one = 0;
+            Random rnd = new Random();
+            for (int i = 0; i < v; i++)
+            {
+                int n = rnd.Next(0, 100);
+                if (0 <= n && n < 50)
+                {
+                    four++;
+                }
+                else if (50 <= n && n < 70)
+                {
+                    three++;
+                }
+                else if (70 <= n && n < 90)
+                {
+                    two++;
+                }
+                else if (90 <= n && n < 100)
+                {
+                    one++;
+                }
+            }
+            WL = mainaccess.loadLearnWord(four,three,two,one);
+            return WL;
+        }
+        public void danhgiaLW(int x, string learnword)
+        {
+            string s = "";
+            switch (x)
+            {
+                case 1:
+                    s = "UPDATE HOCTU SET DoUuTien = 1 WHERE TenTu = @tentu";
+                    break;
+                case 2:
+                    s = "UPDATE HOCTU SET DoUuTien = 2 WHERE TenTu = @tentu" ;
+                    break;
+                case 3:
+                    s = "UPDATE HOCTU SET DoUuTien = 3 WHERE TenTu = @tentu";
+                    break;
+                case 4:
+                    s = "UPDATE HOCTU SET DoUuTien = 4 WHERE TenTu = @tentu";
+                    break;
+                default:
+                    break;
+            }
+            mainaccess.UpdateDoKho(s, x, learnword);
+
+        }
+        public string getMeaning(string s)
+        {
+            string meaning = "";
+            meaning = mainaccess.MeaningLearnWord(s);
+            return meaning;
         }
     }
 }

@@ -18,6 +18,9 @@ namespace VietDict
         TreeNode curNode;
         string selectCollection = "";
         bool isBookmarked;
+        int index = 0;
+        List<string> res;
+        int countres = 0;
         public XtraForm1()
         {
 
@@ -316,7 +319,7 @@ namespace VietDict
                 treeView1.EndUpdate();
             }
         }
-
+        
         private void ListView1_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedIndices.Count < 1) return;
@@ -341,8 +344,14 @@ namespace VietDict
             }
             if (listView1.SelectedIndices[0]==2)
             {
+                
                 flyoutPanel4.Height = (int)(panel8.Height);
                 flyoutPanel4.ShowPopup();
+                index = 0;
+                res = mainProc.wordlearn(30);
+                countres = res.Count();
+                
+                labelWL.Text = res[0];
             }
         }
 
@@ -353,11 +362,6 @@ namespace VietDict
             {
                 i.ForeColor = Color.White;
             }
-        }
-
-        private void Button19_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Button25_Click(object sender, EventArgs e)
@@ -379,6 +383,78 @@ namespace VietDict
             {
                 i.ForeColor = Color.White;
             }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NextWL_Click(object sender, EventArgs e)
+        {
+            TuDanhGia.Visible = false;
+            Kho1.Visible = false;
+            Kho2.Visible = false;
+            Kho3.Visible = false;
+            Kho4.Visible = false;
+            if (NextWL.Text == "Kết thúc")
+            {
+                index = 0;
+                flyoutPanel4.HidePopup();
+                TBResult.Text = "";
+                NextWL.Text = "Câu tiếp";
+                return;
+            }
+            index++;
+            
+            if (index == countres)
+            {
+                NextWL.Text = "Kết thúc";
+            }
+            else
+            {
+                labelWL.Text = res[index];
+                TBResult.Text = "";
+            }
+            
+
+        }
+
+        private void ResultLW_Click(object sender, EventArgs e)
+        {
+            TBResult.Text = mainProc.getMeaning(labelWL.Text);
+            TuDanhGia.Visible = true;
+            Kho1.Visible = true;
+            Kho2.Visible = true;
+            Kho3.Visible = true;
+            Kho4.Visible = true;
+        }
+
+        private void Kho1_Click(object sender, EventArgs e)
+        {
+            Button input = (Button)sender;
+            switch (input.Name)
+            {
+                case "Kho1":
+                    mainProc.danhgiaLW(1, labelWL.Text);
+                    break;
+                case "Kho2":
+                    mainProc.danhgiaLW(2, labelWL.Text);
+                    break;
+                case "Kho3":
+                    mainProc.danhgiaLW(3, labelWL.Text);
+                    break;
+                case "Kho4":
+                    mainProc.danhgiaLW(4, labelWL.Text);
+                    break;
+                default:
+                    break;
+            }
+            NextWL_Click(sender, e);
+            //if (input.Name == "Kho1")
+            //{
+            //    mainProc.danhgiaLW(1, labelWL.Text);
+            //}
         }
     }
 

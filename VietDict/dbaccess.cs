@@ -13,8 +13,9 @@ namespace VietDict
     class dbaccess
     {
         SqlConnection sqlcnt = null;
+        int countTuChuaLoad = 0;
         //string strcnt => ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-        string strcnt = "Data Source=.; Initial Catalog=DICTIONARY; Trusted_Connection=Yes;";
+        string strcnt = "Data Source=.; Initial Catalog=DICTIONARY; Trusted_Connection=Yes;MultipleActiveResultSets=True";
 
         public dbaccess()
         {
@@ -66,6 +67,132 @@ namespace VietDict
                 MessageBox.Show(ex.ToString());
                 return null;
             }
+
+        }
+
+        public List<string> loadLearnWord(int countfour, int countthree, int counttwo, int countone)
+        {
+
+            if (!checkConnection())
+                return null;
+            int totalWord = countfour + countthree + counttwo + countone;
+            List<string> res = new List<string>();
+            
+            res = LoadDanhSachHocTu(res, countone, ref counttwo, 1);
+            
+            res = LoadDanhSachHocTu(res, counttwo, ref countthree, 2);
+            
+            res = LoadDanhSachHocTu(res, countthree, ref countfour, 3);
+            
+            res = LoadDanhSachHocTu(res, countfour, ref countone ,4);
+
+            if (res.Count < totalWord)
+                res = LoadTuChuaLoad(res, totalWord - res.Count);
+        
+            return res;
+            
+        }
+
+        public List<string> LoadDanhSachHocTu(List<string> res, int SoLuong, ref int SL_Nextlevel, int UuTien) {
+            int count = 0;
+            
+            SqlCommand countWord = new SqlCommand("SELECT COUNT(*) FROM HOCTU WHERE DoUuTien =" + UuTien, sqlcnt);
+            using (SqlDataReader rdr = countWord.ExecuteReader())
+            {
+                if (rdr.Read())
+                {
+                    count = rdr.GetInt32(0);
+                }
+                
+            }
+            if (count < SoLuong)
+            {
+                
+                SL_Nextlevel = SL_Nextlevel + SoLuong - count;
+                SoLuong = count;
+            }
+            else
+            {
+                countTuChuaLoad = countTuChuaLoad + count - SoLuong;
+            }
+            SqlCommand listAll = new SqlCommand("SELECT TOP " + SoLuong + " TenTu FROM HOCTU WHERE DoUuTien = " + UuTien + " ORDER BY NEWID()", sqlcnt);
+            using(SqlDataReader rdr = listAll.ExecuteReader())
+            {
+                while (rdr.Read())
+                {
+                    res.Add(rdr.GetString(0));
+                }
+            }
+            return res;
+        }
+
+        public List<string> LoadTuChuaLoad(List<string> res, int countTuCanLoad)
+        {
+            SqlCommand Load = new SqlCommand("SELECT TOP " + countTuCanLoad + "TenTu FROM HOCTU ORDER BY NEWID()", sqlcnt);
+            using (SqlDataReader rdr = Load.ExecuteReader())
+            {
+                while (rdr.Read())
+                {
+                    res.Add(rdr.GetString(0));
+                }
+            }
+            return res;
+        }
+
+        public string MeaningLearnWord(string s)
+        {
+            string meaning = "";
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT NghiaCoBan FROM TU WHERE TenTu = @tentu";
+            cmd.Parameters.Add("@tentu", SqlDbType.NVarChar).Value = s;
+            cmd.Connection = sqlcnt;
+            SqlDataReader sqlrdr = cmd.ExecuteReader();
+            while (sqlrdr.Read())
+                meaning = sqlrdr.GetString(0);
+            sqlrdr.Close();
+            return meaning;
+        }
+
+        public void UpdateDoKho(string s, int x, string learnword)
+        {
+            string DoUuTien = "";
+            
+            
+            if (x == 1)
+            {
+                try
+                {
+                    SqlCommand getDoUuTien = new SqlCommand("SELECT DoUuTien FROM HOCTU WHERE TenTu = @tentu", sqlcnt);
+                    getDoUuTien.Parameters.Add("@tentu", SqlDbType.NVarChar).Value = learnword;
+                    SqlDataReader sqlrdr = getDoUuTien.ExecuteReader();
+                    if (sqlrdr.Read())
+                    {
+                        DoUuTien = sqlrdr.GetInt32(0).ToString();
+                    }
+                    
+                    sqlrdr.Close();
+                    if (DoUuTien == x.ToString())
+                    {
+                        DeleteHocTu(learnword);
+                        return;
+                    }
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show(e.ToString());
+                }
+            }
+            
+            SqlCommand sqlcmdupdate = new SqlCommand(s, sqlcnt);
+            sqlcmdupdate.Parameters.Add("@tentu", SqlDbType.NVarChar).Value = learnword;
+            
+            sqlcmdupdate.ExecuteNonQuery();
+        }
+        public void DeleteHocTu(string s)
+        {
+            SqlCommand cmd = new SqlCommand("DELETE FROM HOCTU WHERE TenTu = " + s, sqlcnt);
+            cmd.ExecuteNonQuery();
         }
 
         public List<string> listCollection()
