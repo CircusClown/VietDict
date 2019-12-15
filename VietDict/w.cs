@@ -56,5 +56,15 @@ namespace VietDict
         {
 
         }
+
+        private void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void PdfViewer1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
