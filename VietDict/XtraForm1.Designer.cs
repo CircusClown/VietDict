@@ -65,6 +65,24 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
+            this.flyoutPanel4 = new DevExpress.Utils.FlyoutPanel();
+            this.flyoutPanelControl4 = new DevExpress.Utils.FlyoutPanelControl();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.button21 = new System.Windows.Forms.Button();
+            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
+            this.button20 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.panel27 = new System.Windows.Forms.Panel();
+            this.button22 = new System.Windows.Forms.Button();
             this.flyoutPanel1 = new DevExpress.Utils.FlyoutPanel();
             this.flyoutPanelControl1 = new DevExpress.Utils.FlyoutPanelControl();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -86,10 +104,12 @@
             this.flyoutPanel7 = new DevExpress.Utils.FlyoutPanel();
             this.flyoutPanelControl7 = new DevExpress.Utils.FlyoutPanelControl();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
+            this.toggleSwitch2 = new DevExpress.XtraEditors.ToggleSwitch();
             this.panel29 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.panel30 = new System.Windows.Forms.Panel();
+            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label19 = new System.Windows.Forms.Label();
             this.panel31 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
@@ -128,6 +148,15 @@
             this.listView5 = new System.Windows.Forms.ListView();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.flyoutPanel6 = new DevExpress.Utils.FlyoutPanel();
+            this.flyoutPanelControl2 = new DevExpress.Utils.FlyoutPanelControl();
+            this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.button29 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flyoutPanel5 = new DevExpress.Utils.FlyoutPanel();
             this.flyoutPanelControl5 = new DevExpress.Utils.FlyoutPanelControl();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
@@ -143,33 +172,6 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.button28 = new System.Windows.Forms.Button();
-            this.flyoutPanel4 = new DevExpress.Utils.FlyoutPanel();
-            this.flyoutPanelControl4 = new DevExpress.Utils.FlyoutPanelControl();
-            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.button21 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.panel26 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.panel27 = new System.Windows.Forms.Panel();
-            this.button22 = new System.Windows.Forms.Button();
-            this.flyoutPanel6 = new DevExpress.Utils.FlyoutPanel();
-            this.flyoutPanelControl2 = new DevExpress.Utils.FlyoutPanelControl();
-            this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.button29 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flyoutPanel3 = new DevExpress.Utils.FlyoutPanel();
             this.flyoutPanelControl3 = new DevExpress.Utils.FlyoutPanelControl();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
@@ -235,6 +237,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
             this.xtraTabControl2.SuspendLayout();
             this.xtraTabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel4)).BeginInit();
+            this.flyoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl4)).BeginInit();
+            this.flyoutPanelControl4.SuspendLayout();
+            this.tableLayoutPanel11.SuspendLayout();
+            this.panel24.SuspendLayout();
+            this.tableLayoutPanel13.SuspendLayout();
+            this.panel25.SuspendLayout();
+            this.tableLayoutPanel14.SuspendLayout();
+            this.panel26.SuspendLayout();
+            this.panel27.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel1)).BeginInit();
             this.flyoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl1)).BeginInit();
@@ -252,9 +265,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl7)).BeginInit();
             this.flyoutPanelControl7.SuspendLayout();
             this.tableLayoutPanel17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch2.Properties)).BeginInit();
             this.panel29.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             this.panel30.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
             this.panel31.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).BeginInit();
             this.panel1.SuspendLayout();
@@ -270,6 +285,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel2)).BeginInit();
             this.flyoutPanel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel6)).BeginInit();
+            this.flyoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl2)).BeginInit();
+            this.flyoutPanelControl2.SuspendLayout();
+            this.tableLayoutPanel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel5)).BeginInit();
             this.flyoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl5)).BeginInit();
@@ -281,23 +302,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.xtraTabPage9.SuspendLayout();
             this.panel28.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel4)).BeginInit();
-            this.flyoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl4)).BeginInit();
-            this.flyoutPanelControl4.SuspendLayout();
-            this.tableLayoutPanel11.SuspendLayout();
-            this.panel24.SuspendLayout();
-            this.tableLayoutPanel13.SuspendLayout();
-            this.panel25.SuspendLayout();
-            this.tableLayoutPanel14.SuspendLayout();
-            this.panel26.SuspendLayout();
-            this.panel27.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel6)).BeginInit();
-            this.flyoutPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl2)).BeginInit();
-            this.flyoutPanelControl2.SuspendLayout();
-            this.tableLayoutPanel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel3)).BeginInit();
             this.flyoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl3)).BeginInit();
@@ -370,10 +374,10 @@
             this.panel4.Controls.Add(this.panel8);
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(250, 5);
+            this.panel4.Location = new System.Drawing.Point(227, 5);
             this.panel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(855, 629);
+            this.panel4.Size = new System.Drawing.Size(775, 629);
             this.panel4.TabIndex = 1;
             this.panel4.Tag = "control";
             // 
@@ -384,7 +388,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 117);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(855, 512);
+            this.panel8.Size = new System.Drawing.Size(775, 512);
             this.panel8.TabIndex = 0;
             this.panel8.Tag = "control";
             // 
@@ -394,7 +398,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 39);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(855, 473);
+            this.panel9.Size = new System.Drawing.Size(775, 473);
             this.panel9.TabIndex = 0;
             this.panel9.Tag = "control";
             // 
@@ -406,7 +410,7 @@
             this.xtraTabControl2.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl2.Name = "xtraTabControl2";
             this.xtraTabControl2.SelectedTabPage = this.xtraTabPage5;
-            this.xtraTabControl2.Size = new System.Drawing.Size(855, 473);
+            this.xtraTabControl2.Size = new System.Drawing.Size(775, 473);
             this.xtraTabControl2.TabIndex = 0;
             this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage5,
@@ -415,18 +419,281 @@
             // 
             // xtraTabPage5
             // 
+            this.xtraTabPage5.Controls.Add(this.flyoutPanel4);
             this.xtraTabPage5.Controls.Add(this.flyoutPanel1);
             this.xtraTabPage5.Controls.Add(this.flyoutPanel7);
-            this.xtraTabPage5.Controls.Add(this.flyoutPanel5);
-            this.xtraTabPage5.Controls.Add(this.flyoutPanel4);
             this.xtraTabPage5.Controls.Add(this.flyoutPanel6);
             this.xtraTabPage5.Controls.Add(this.pictureBox1);
+            this.xtraTabPage5.Controls.Add(this.flyoutPanel5);
             this.xtraTabPage5.Controls.Add(this.flyoutPanel3);
             this.xtraTabPage5.Controls.Add(this.richTextBox1);
             this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(853, 444);
+            this.xtraTabPage5.Size = new System.Drawing.Size(773, 444);
             this.xtraTabPage5.Tag = "control";
             this.xtraTabPage5.Text = "Nghĩa từ";
+            // 
+            // flyoutPanel4
+            // 
+            this.flyoutPanel4.Controls.Add(this.flyoutPanelControl4);
+            this.flyoutPanel4.Location = new System.Drawing.Point(278, 177);
+            this.flyoutPanel4.Name = "flyoutPanel4";
+            this.flyoutPanel4.Options.CloseOnOuterClick = true;
+            this.flyoutPanel4.OwnerControl = this.panel8;
+            this.flyoutPanel4.ParentForm = this;
+            this.flyoutPanel4.Size = new System.Drawing.Size(365, 366);
+            this.flyoutPanel4.TabIndex = 9;
+            this.flyoutPanel4.Tag = "control";
+            // 
+            // flyoutPanelControl4
+            // 
+            this.flyoutPanelControl4.Controls.Add(this.tableLayoutPanel11);
+            this.flyoutPanelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flyoutPanelControl4.FlyoutPanel = this.flyoutPanel4;
+            this.flyoutPanelControl4.Location = new System.Drawing.Point(0, 0);
+            this.flyoutPanelControl4.Name = "flyoutPanelControl4";
+            this.flyoutPanelControl4.Size = new System.Drawing.Size(365, 366);
+            this.flyoutPanelControl4.TabIndex = 0;
+            this.flyoutPanelControl4.Tag = "control";
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 2;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel11.Controls.Add(this.panel24, 1, 2);
+            this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel13, 0, 1);
+            this.tableLayoutPanel11.Controls.Add(this.panel25, 1, 1);
+            this.tableLayoutPanel11.Controls.Add(this.label14, 1, 0);
+            this.tableLayoutPanel11.Controls.Add(this.panel26, 0, 0);
+            this.tableLayoutPanel11.Controls.Add(this.panel27, 0, 2);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 3;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(361, 362);
+            this.tableLayoutPanel11.TabIndex = 0;
+            this.tableLayoutPanel11.Tag = "control";
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.button21);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel24.Location = new System.Drawing.Point(164, 290);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(194, 69);
+            this.panel24.TabIndex = 11;
+            this.panel24.Tag = "control";
+            // 
+            // button21
+            // 
+            this.button21.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button21.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button21.Font = new System.Drawing.Font("Segoe UI", 18F);
+            this.button21.ForeColor = System.Drawing.Color.White;
+            this.button21.Image = ((System.Drawing.Image)(resources.GetObject("button21.Image")));
+            this.button21.Location = new System.Drawing.Point(3, 6);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(189, 58);
+            this.button21.TabIndex = 5;
+            this.button21.Tag = "control";
+            this.button21.Text = "Câu tiếp";
+            this.button21.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.button21.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel13
+            // 
+            this.tableLayoutPanel13.ColumnCount = 3;
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 97.89721F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.102792F));
+            this.tableLayoutPanel13.Controls.Add(this.richTextBox3, 1, 0);
+            this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 78);
+            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
+            this.tableLayoutPanel13.RowCount = 1;
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(155, 206);
+            this.tableLayoutPanel13.TabIndex = 14;
+            this.tableLayoutPanel13.Tag = "control";
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
+            this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox3.ForeColor = System.Drawing.SystemColors.Window;
+            this.richTextBox3.Location = new System.Drawing.Point(23, 3);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(126, 200);
+            this.richTextBox3.TabIndex = 0;
+            this.richTextBox3.Tag = "control";
+            this.richTextBox3.Text = "";
+            // 
+            // panel25
+            // 
+            this.panel25.Controls.Add(this.tableLayoutPanel14);
+            this.panel25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel25.Location = new System.Drawing.Point(164, 78);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(194, 206);
+            this.panel25.TabIndex = 0;
+            this.panel25.Tag = "control";
+            // 
+            // tableLayoutPanel14
+            // 
+            this.tableLayoutPanel14.ColumnCount = 1;
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel14.Controls.Add(this.button20, 0, 3);
+            this.tableLayoutPanel14.Controls.Add(this.button19, 0, 2);
+            this.tableLayoutPanel14.Controls.Add(this.button18, 0, 1);
+            this.tableLayoutPanel14.Controls.Add(this.button17, 0, 0);
+            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
+            this.tableLayoutPanel14.RowCount = 4;
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(194, 206);
+            this.tableLayoutPanel14.TabIndex = 14;
+            this.tableLayoutPanel14.Tag = "control";
+            // 
+            // button20
+            // 
+            this.button20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
+            this.button20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button20.FlatAppearance.BorderSize = 0;
+            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button20.Font = new System.Drawing.Font("Segoe UI", 18F);
+            this.button20.ForeColor = System.Drawing.Color.Red;
+            this.button20.Location = new System.Drawing.Point(3, 156);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(188, 47);
+            this.button20.TabIndex = 10;
+            this.button20.Tag = "control";
+            this.button20.Text = "Sai";
+            this.button20.UseVisualStyleBackColor = false;
+            // 
+            // button19
+            // 
+            this.button19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
+            this.button19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button19.FlatAppearance.BorderSize = 0;
+            this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button19.Font = new System.Drawing.Font("Segoe UI", 18F);
+            this.button19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button19.Location = new System.Drawing.Point(3, 105);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(188, 45);
+            this.button19.TabIndex = 11;
+            this.button19.Tag = "control";
+            this.button19.Text = "Gần đúng";
+            this.button19.UseVisualStyleBackColor = false;
+            this.button19.Click += new System.EventHandler(this.Button19_Click);
+            // 
+            // button18
+            // 
+            this.button18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
+            this.button18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button18.FlatAppearance.BorderSize = 0;
+            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button18.Font = new System.Drawing.Font("Segoe UI", 18F);
+            this.button18.ForeColor = System.Drawing.Color.GreenYellow;
+            this.button18.Location = new System.Drawing.Point(3, 54);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(188, 45);
+            this.button18.TabIndex = 12;
+            this.button18.Tag = "control";
+            this.button18.Text = "Đúng";
+            this.button18.UseVisualStyleBackColor = false;
+            // 
+            // button17
+            // 
+            this.button17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
+            this.button17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button17.FlatAppearance.BorderSize = 0;
+            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button17.Font = new System.Drawing.Font("Segoe UI", 18F);
+            this.button17.ForeColor = System.Drawing.Color.Lime;
+            this.button17.Location = new System.Drawing.Point(3, 3);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(188, 45);
+            this.button17.TabIndex = 13;
+            this.button17.Tag = "control";
+            this.button17.Text = "Dễ";
+            this.button17.UseVisualStyleBackColor = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 20F);
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.label14.Location = new System.Drawing.Point(164, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(194, 75);
+            this.label14.TabIndex = 12;
+            this.label14.Tag = "control";
+            this.label14.Text = "Tự đánh giá đáp án";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel26
+            // 
+            this.panel26.Controls.Add(this.label15);
+            this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel26.Location = new System.Drawing.Point(3, 3);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(155, 69);
+            this.panel26.TabIndex = 13;
+            this.panel26.Tag = "control";
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 24F);
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label15.Location = new System.Drawing.Point(24, 10);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(263, 47);
+            this.label15.TabIndex = 7;
+            this.label15.Tag = "control";
+            this.label15.Text = "Từ được hiển thij";
+            // 
+            // panel27
+            // 
+            this.panel27.Controls.Add(this.button22);
+            this.panel27.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel27.Location = new System.Drawing.Point(3, 290);
+            this.panel27.Name = "panel27";
+            this.panel27.Size = new System.Drawing.Size(155, 69);
+            this.panel27.TabIndex = 15;
+            this.panel27.Tag = "control";
+            // 
+            // button22
+            // 
+            this.button22.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button22.Font = new System.Drawing.Font("Segoe UI", 18F);
+            this.button22.ForeColor = System.Drawing.Color.White;
+            this.button22.Location = new System.Drawing.Point(24, 7);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(210, 54);
+            this.button22.TabIndex = 4;
+            this.button22.Tag = "control";
+            this.button22.Text = "Đáp án";
+            this.button22.UseVisualStyleBackColor = true;
             // 
             // flyoutPanel1
             // 
@@ -702,11 +969,12 @@
             // 
             this.tableLayoutPanel17.ColumnCount = 1;
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel17.Controls.Add(this.toggleSwitch2, 0, 4);
             this.tableLayoutPanel17.Controls.Add(this.panel29, 0, 1);
             this.tableLayoutPanel17.Controls.Add(this.panel30, 0, 2);
             this.tableLayoutPanel17.Controls.Add(this.panel31, 0, 3);
             this.tableLayoutPanel17.Controls.Add(this.label21, 0, 0);
-            this.tableLayoutPanel17.Controls.Add(this.toggleSwitch1, 0, 4);
+            this.tableLayoutPanel17.Controls.Add(this.toggleSwitch1, 0, 5);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel17.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
@@ -722,6 +990,18 @@
             this.tableLayoutPanel17.Size = new System.Drawing.Size(216, 532);
             this.tableLayoutPanel17.TabIndex = 0;
             this.tableLayoutPanel17.Tag = "control";
+            // 
+            // toggleSwitch2
+            // 
+            this.toggleSwitch2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toggleSwitch2.Location = new System.Drawing.Point(3, 188);
+            this.toggleSwitch2.Name = "toggleSwitch2";
+            this.toggleSwitch2.Properties.OffText = "Không";
+            this.toggleSwitch2.Properties.OnText = "Có";
+            this.toggleSwitch2.Size = new System.Drawing.Size(210, 34);
+            this.toggleSwitch2.TabIndex = 9;
+            this.toggleSwitch2.Tag = "control";
+            this.toggleSwitch2.Toggled += new System.EventHandler(this.ToggleSwitch2_Toggled);
             // 
             // panel29
             // 
@@ -765,9 +1045,11 @@
             this.comboBoxEdit1.Size = new System.Drawing.Size(210, 18);
             this.comboBoxEdit1.TabIndex = 1;
             this.comboBoxEdit1.Tag = "control";
+            this.comboBoxEdit1.SelectedIndexChanged += new System.EventHandler(this.ComboBoxEdit1_SelectedIndexChanged);
             // 
             // panel30
             // 
+            this.panel30.Controls.Add(this.comboBoxEdit2);
             this.panel30.Controls.Add(this.label19);
             this.panel30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel30.Location = new System.Drawing.Point(3, 103);
@@ -776,13 +1058,41 @@
             this.panel30.TabIndex = 4;
             this.panel30.Tag = "control";
             // 
+            // comboBoxEdit2
+            // 
+            this.comboBoxEdit2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.comboBoxEdit2.EditValue = "4";
+            this.comboBoxEdit2.Location = new System.Drawing.Point(0, 26);
+            this.comboBoxEdit2.Name = "comboBoxEdit2";
+            this.comboBoxEdit2.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
+            this.comboBoxEdit2.Properties.Appearance.Options.UseBackColor = true;
+            this.comboBoxEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit2.Properties.DropDownRows = 10;
+            this.comboBoxEdit2.Properties.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.comboBoxEdit2.Properties.Tag = "control";
+            this.comboBoxEdit2.Size = new System.Drawing.Size(210, 18);
+            this.comboBoxEdit2.TabIndex = 4;
+            this.comboBoxEdit2.Tag = "control";
+            // 
             // label19
             // 
             this.label19.Dock = System.Windows.Forms.DockStyle.Top;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.label19.Location = new System.Drawing.Point(0, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(210, 21);
+            this.label19.Size = new System.Drawing.Size(210, 23);
             this.label19.TabIndex = 3;
             this.label19.Tag = "control";
             this.label19.Text = "Số từ học trong 1 section";
@@ -822,11 +1132,12 @@
             // 
             // toggleSwitch1
             // 
-            this.toggleSwitch1.Location = new System.Drawing.Point(3, 188);
+            this.toggleSwitch1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toggleSwitch1.Location = new System.Drawing.Point(3, 228);
             this.toggleSwitch1.Name = "toggleSwitch1";
             this.toggleSwitch1.Properties.OffText = "DarkMode";
             this.toggleSwitch1.Properties.OnText = "LightMode";
-            this.toggleSwitch1.Size = new System.Drawing.Size(210, 19);
+            this.toggleSwitch1.Size = new System.Drawing.Size(210, 44);
             this.toggleSwitch1.TabIndex = 8;
             this.toggleSwitch1.Tag = "control";
             this.toggleSwitch1.Toggled += new System.EventHandler(this.ToggleSwitch1_Toggled);
@@ -839,7 +1150,7 @@
             this.panel1.Location = new System.Drawing.Point(4, 5);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(238, 629);
+            this.panel1.Size = new System.Drawing.Size(215, 629);
             this.panel1.TabIndex = 0;
             this.panel1.Tag = "control";
             // 
@@ -851,7 +1162,7 @@
             this.panel6.Location = new System.Drawing.Point(0, 156);
             this.panel6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(238, 473);
+            this.panel6.Size = new System.Drawing.Size(215, 473);
             this.panel6.TabIndex = 0;
             this.panel6.Tag = "control";
             // 
@@ -861,7 +1172,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel7.Location = new System.Drawing.Point(0, 430);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(238, 43);
+            this.panel7.Size = new System.Drawing.Size(215, 43);
             this.panel7.TabIndex = 19;
             this.panel7.Tag = "control";
             // 
@@ -877,7 +1188,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(238, 43);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(215, 43);
             this.tableLayoutPanel2.TabIndex = 20;
             this.tableLayoutPanel2.Tag = "control";
             // 
@@ -892,7 +1203,7 @@
             this.button3.ImageList = this.imageList9;
             this.button3.Location = new System.Drawing.Point(3, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(113, 37);
+            this.button3.Size = new System.Drawing.Size(101, 37);
             this.button3.TabIndex = 17;
             this.button3.Tag = "controlbtn";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -908,9 +1219,9 @@
             this.button5.ForeColor = System.Drawing.SystemColors.Window;
             this.button5.ImageIndex = 4;
             this.button5.ImageList = this.imageList9;
-            this.button5.Location = new System.Drawing.Point(122, 3);
+            this.button5.Location = new System.Drawing.Point(110, 3);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(113, 37);
+            this.button5.Size = new System.Drawing.Size(102, 37);
             this.button5.TabIndex = 19;
             this.button5.Tag = "controlbtn";
             this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -926,7 +1237,7 @@
             this.treeView1.HotTracking = true;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(238, 473);
+            this.treeView1.Size = new System.Drawing.Size(215, 473);
             this.treeView1.TabIndex = 0;
             this.treeView1.Tag = "control";
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeView1_AfterSelect);
@@ -944,7 +1255,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(238, 156);
+            this.panel5.Size = new System.Drawing.Size(215, 156);
             this.panel5.TabIndex = 0;
             this.panel5.Tag = "control";
             // 
@@ -964,7 +1275,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(238, 62);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(215, 62);
             this.tableLayoutPanel4.TabIndex = 25;
             this.tableLayoutPanel4.Tag = "control";
             // 
@@ -977,7 +1288,7 @@
             this.button23.ImageList = this.imageList9;
             this.button23.Location = new System.Drawing.Point(3, 15);
             this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(73, 31);
+            this.button23.Size = new System.Drawing.Size(65, 31);
             this.button23.TabIndex = 0;
             this.button23.Tag = "controlbtn";
             this.button23.Text = "\r\n";
@@ -991,9 +1302,9 @@
             this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button24.ImageIndex = 10;
             this.button24.ImageList = this.imageList9;
-            this.button24.Location = new System.Drawing.Point(82, 15);
+            this.button24.Location = new System.Drawing.Point(74, 15);
             this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(73, 31);
+            this.button24.Size = new System.Drawing.Size(65, 31);
             this.button24.TabIndex = 1;
             this.button24.Tag = "controlbtn";
             this.button24.UseVisualStyleBackColor = true;
@@ -1006,9 +1317,9 @@
             this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button25.ImageIndex = 8;
             this.button25.ImageList = this.imageList9;
-            this.button25.Location = new System.Drawing.Point(161, 15);
+            this.button25.Location = new System.Drawing.Point(145, 15);
             this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(74, 31);
+            this.button25.Size = new System.Drawing.Size(67, 31);
             this.button25.TabIndex = 2;
             this.button25.Tag = "controlbtn";
             this.button25.UseVisualStyleBackColor = true;
@@ -1021,7 +1332,7 @@
             this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel16.Location = new System.Drawing.Point(0, 25);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(238, 30);
+            this.panel16.Size = new System.Drawing.Size(215, 30);
             this.panel16.TabIndex = 24;
             this.panel16.Tag = "control";
             // 
@@ -1033,7 +1344,7 @@
             this.button1.ForeColor = System.Drawing.SystemColors.Window;
             this.button1.ImageIndex = 6;
             this.button1.ImageList = this.imageList9;
-            this.button1.Location = new System.Drawing.Point(203, 0);
+            this.button1.Location = new System.Drawing.Point(180, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(35, 30);
             this.button1.TabIndex = 15;
@@ -1052,7 +1363,7 @@
             this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(238, 30);
+            this.textBox1.Size = new System.Drawing.Size(215, 30);
             this.textBox1.TabIndex = 13;
             this.textBox1.Tag = "control";
             this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
@@ -1064,7 +1375,7 @@
             this.panel13.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel13.Location = new System.Drawing.Point(0, 117);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(238, 39);
+            this.panel13.Size = new System.Drawing.Size(215, 39);
             this.panel13.TabIndex = 23;
             this.panel13.Tag = "control";
             // 
@@ -1074,7 +1385,7 @@
             this.panel14.Controls.Add(this.button6);
             this.panel14.Controls.Add(this.button7);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel14.Location = new System.Drawing.Point(114, 0);
+            this.panel14.Location = new System.Drawing.Point(91, 0);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(124, 39);
             this.panel14.TabIndex = 5;
@@ -1161,7 +1472,7 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(238, 25);
+            this.panel12.Size = new System.Drawing.Size(215, 25);
             this.panel12.TabIndex = 22;
             this.panel12.Tag = "control";
             // 
@@ -1313,465 +1624,6 @@
             this.label1.Tag = "control";
             this.label1.Text = "Danh sách từ";
             // 
-            // flyoutPanel5
-            // 
-            this.flyoutPanel5.Controls.Add(this.flyoutPanelControl5);
-            this.flyoutPanel5.Location = new System.Drawing.Point(270, 26);
-            this.flyoutPanel5.Name = "flyoutPanel5";
-            this.flyoutPanel5.Options.CloseOnOuterClick = true;
-            this.flyoutPanel5.OwnerControl = this.panel8;
-            this.flyoutPanel5.ParentForm = this;
-            this.flyoutPanel5.Size = new System.Drawing.Size(41, 330);
-            this.flyoutPanel5.TabIndex = 2;
-            this.flyoutPanel5.Tag = "control";
-            // 
-            // flyoutPanelControl5
-            // 
-            this.flyoutPanelControl5.Controls.Add(this.tableLayoutPanel15);
-            this.flyoutPanelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flyoutPanelControl5.FlyoutPanel = this.flyoutPanel5;
-            this.flyoutPanelControl5.Location = new System.Drawing.Point(0, 0);
-            this.flyoutPanelControl5.Name = "flyoutPanelControl5";
-            this.flyoutPanelControl5.Size = new System.Drawing.Size(41, 330);
-            this.flyoutPanelControl5.TabIndex = 0;
-            this.flyoutPanelControl5.Tag = "control";
-            // 
-            // tableLayoutPanel15
-            // 
-            this.tableLayoutPanel15.ColumnCount = 1;
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.Controls.Add(this.xtraTabControl3, 0, 1);
-            this.tableLayoutPanel15.Controls.Add(this.panel28, 0, 0);
-            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
-            this.tableLayoutPanel15.RowCount = 2;
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(37, 326);
-            this.tableLayoutPanel15.TabIndex = 0;
-            this.tableLayoutPanel15.Tag = "control";
-            // 
-            // xtraTabControl3
-            // 
-            this.xtraTabControl3.Appearance.ForeColor = System.Drawing.SystemColors.Window;
-            this.xtraTabControl3.Appearance.Options.UseForeColor = true;
-            this.xtraTabControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl3.Location = new System.Drawing.Point(3, 103);
-            this.xtraTabControl3.Name = "xtraTabControl3";
-            this.xtraTabControl3.SelectedTabPage = this.xtraTabPage8;
-            this.xtraTabControl3.Size = new System.Drawing.Size(31, 220);
-            this.xtraTabControl3.TabIndex = 3;
-            this.xtraTabControl3.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage8,
-            this.xtraTabPage9});
-            this.xtraTabControl3.Tag = "control";
-            // 
-            // xtraTabPage8
-            // 
-            this.xtraTabPage8.Controls.Add(this.pictureBox2);
-            this.xtraTabPage8.Controls.Add(this.richTextBox5);
-            this.xtraTabPage8.Name = "xtraTabPage8";
-            this.xtraTabPage8.Size = new System.Drawing.Size(29, 191);
-            this.xtraTabPage8.Tag = "control";
-            this.xtraTabPage8.Text = "Nghĩa từ";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox2.Location = new System.Drawing.Point(-103, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(132, 191);
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Tag = "control";
-            // 
-            // richTextBox5
-            // 
-            this.richTextBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
-            this.richTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox5.ForeColor = System.Drawing.Color.White;
-            this.richTextBox5.Location = new System.Drawing.Point(0, 0);
-            this.richTextBox5.Name = "richTextBox5";
-            this.richTextBox5.Size = new System.Drawing.Size(29, 191);
-            this.richTextBox5.TabIndex = 2;
-            this.richTextBox5.Tag = "control";
-            this.richTextBox5.Text = "";
-            // 
-            // xtraTabPage9
-            // 
-            this.xtraTabPage9.Controls.Add(this.richTextBox6);
-            this.xtraTabPage9.Name = "xtraTabPage9";
-            this.xtraTabPage9.Size = new System.Drawing.Size(29, 191);
-            this.xtraTabPage9.Tag = "control";
-            this.xtraTabPage9.Text = "Nghĩa chuyên ngành";
-            // 
-            // richTextBox6
-            // 
-            this.richTextBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
-            this.richTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.richTextBox6.Location = new System.Drawing.Point(0, 0);
-            this.richTextBox6.Name = "richTextBox6";
-            this.richTextBox6.Size = new System.Drawing.Size(29, 191);
-            this.richTextBox6.TabIndex = 3;
-            this.richTextBox6.Tag = "control";
-            this.richTextBox6.Text = "";
-            // 
-            // panel28
-            // 
-            this.panel28.Controls.Add(this.button26);
-            this.panel28.Controls.Add(this.button27);
-            this.panel28.Controls.Add(this.textBox7);
-            this.panel28.Controls.Add(this.textBox8);
-            this.panel28.Controls.Add(this.button28);
-            this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel28.Location = new System.Drawing.Point(3, 3);
-            this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(31, 94);
-            this.panel28.TabIndex = 4;
-            this.panel28.Tag = "control";
-            // 
-            // button26
-            // 
-            this.button26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button26.FlatAppearance.BorderSize = 0;
-            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button26.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.button26.ImageList = this.imageList9;
-            this.button26.Location = new System.Drawing.Point(-52, 53);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(59, 34);
-            this.button26.TabIndex = 5;
-            this.button26.Tag = "controlbtn";
-            this.button26.Text = "?";
-            this.button26.UseVisualStyleBackColor = true;
-            this.button26.Click += new System.EventHandler(this.Button26_Click);
-            // 
-            // button27
-            // 
-            this.button27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button27.FlatAppearance.BorderSize = 0;
-            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button27.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.button27.Location = new System.Drawing.Point(-281, 53);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(94, 37);
-            this.button27.TabIndex = 6;
-            this.button27.Tag = "control";
-            this.button27.Text = "Lưu";
-            this.button27.UseVisualStyleBackColor = true;
-            // 
-            // textBox7
-            // 
-            this.textBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBox7.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBox7.Location = new System.Drawing.Point(15, 55);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(130, 29);
-            this.textBox7.TabIndex = 5;
-            this.textBox7.Tag = "control";
-            this.textBox7.Text = "Phát âm";
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox8.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBox8.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBox8.Location = new System.Drawing.Point(15, 12);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(0, 29);
-            this.textBox8.TabIndex = 2;
-            this.textBox8.Tag = "control";
-            // 
-            // button28
-            // 
-            this.button28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button28.FlatAppearance.BorderSize = 0;
-            this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button28.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.button28.Location = new System.Drawing.Point(-179, 55);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(109, 32);
-            this.button28.TabIndex = 3;
-            this.button28.Tag = "control";
-            this.button28.Text = "Thêm hình";
-            this.button28.UseVisualStyleBackColor = true;
-            // 
-            // flyoutPanel4
-            // 
-            this.flyoutPanel4.Controls.Add(this.flyoutPanelControl4);
-            this.flyoutPanel4.Location = new System.Drawing.Point(279, 82);
-            this.flyoutPanel4.Name = "flyoutPanel4";
-            this.flyoutPanel4.Options.CloseOnOuterClick = true;
-            this.flyoutPanel4.OwnerControl = this.panel8;
-            this.flyoutPanel4.ParentForm = this;
-            this.flyoutPanel4.Size = new System.Drawing.Size(234, 247);
-            this.flyoutPanel4.TabIndex = 9;
-            this.flyoutPanel4.Tag = "control";
-            // 
-            // flyoutPanelControl4
-            // 
-            this.flyoutPanelControl4.Controls.Add(this.tableLayoutPanel11);
-            this.flyoutPanelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flyoutPanelControl4.FlyoutPanel = this.flyoutPanel4;
-            this.flyoutPanelControl4.Location = new System.Drawing.Point(0, 0);
-            this.flyoutPanelControl4.Name = "flyoutPanelControl4";
-            this.flyoutPanelControl4.Size = new System.Drawing.Size(234, 247);
-            this.flyoutPanelControl4.TabIndex = 0;
-            this.flyoutPanelControl4.Tag = "control";
-            // 
-            // tableLayoutPanel11
-            // 
-            this.tableLayoutPanel11.ColumnCount = 2;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel11.Controls.Add(this.panel24, 1, 2);
-            this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel13, 0, 1);
-            this.tableLayoutPanel11.Controls.Add(this.panel25, 1, 1);
-            this.tableLayoutPanel11.Controls.Add(this.label14, 1, 0);
-            this.tableLayoutPanel11.Controls.Add(this.panel26, 0, 0);
-            this.tableLayoutPanel11.Controls.Add(this.panel27, 0, 2);
-            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 3;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(230, 243);
-            this.tableLayoutPanel11.TabIndex = 0;
-            this.tableLayoutPanel11.Tag = "control";
-            // 
-            // panel24
-            // 
-            this.panel24.Controls.Add(this.button21);
-            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel24.Location = new System.Drawing.Point(33, 171);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(194, 69);
-            this.panel24.TabIndex = 11;
-            this.panel24.Tag = "control";
-            // 
-            // button21
-            // 
-            this.button21.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button21.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button21.Font = new System.Drawing.Font("Segoe UI", 18F);
-            this.button21.ForeColor = System.Drawing.Color.White;
-            this.button21.Image = ((System.Drawing.Image)(resources.GetObject("button21.Image")));
-            this.button21.Location = new System.Drawing.Point(3, 6);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(189, 58);
-            this.button21.TabIndex = 5;
-            this.button21.Tag = "control";
-            this.button21.Text = "Câu tiếp";
-            this.button21.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button21.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel13
-            // 
-            this.tableLayoutPanel13.ColumnCount = 3;
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 97.89721F));
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.102792F));
-            this.tableLayoutPanel13.Controls.Add(this.richTextBox3, 1, 0);
-            this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 78);
-            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
-            this.tableLayoutPanel13.RowCount = 1;
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(24, 87);
-            this.tableLayoutPanel13.TabIndex = 14;
-            this.tableLayoutPanel13.Tag = "control";
-            // 
-            // richTextBox3
-            // 
-            this.richTextBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
-            this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox3.ForeColor = System.Drawing.SystemColors.Window;
-            this.richTextBox3.Location = new System.Drawing.Point(23, 3);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(1, 81);
-            this.richTextBox3.TabIndex = 0;
-            this.richTextBox3.Tag = "control";
-            this.richTextBox3.Text = "";
-            // 
-            // panel25
-            // 
-            this.panel25.Controls.Add(this.tableLayoutPanel14);
-            this.panel25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel25.Location = new System.Drawing.Point(33, 78);
-            this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(194, 87);
-            this.panel25.TabIndex = 0;
-            this.panel25.Tag = "control";
-            // 
-            // tableLayoutPanel14
-            // 
-            this.tableLayoutPanel14.ColumnCount = 1;
-            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Controls.Add(this.button20, 0, 3);
-            this.tableLayoutPanel14.Controls.Add(this.button19, 0, 2);
-            this.tableLayoutPanel14.Controls.Add(this.button18, 0, 1);
-            this.tableLayoutPanel14.Controls.Add(this.button17, 0, 0);
-            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel14.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
-            this.tableLayoutPanel14.RowCount = 4;
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(194, 87);
-            this.tableLayoutPanel14.TabIndex = 14;
-            this.tableLayoutPanel14.Tag = "control";
-            // 
-            // button20
-            // 
-            this.button20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
-            this.button20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button20.FlatAppearance.BorderSize = 0;
-            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button20.Font = new System.Drawing.Font("Segoe UI", 18F);
-            this.button20.ForeColor = System.Drawing.Color.Red;
-            this.button20.Location = new System.Drawing.Point(3, 66);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(188, 18);
-            this.button20.TabIndex = 10;
-            this.button20.Tag = "control";
-            this.button20.Text = "Sai";
-            this.button20.UseVisualStyleBackColor = false;
-            // 
-            // button19
-            // 
-            this.button19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
-            this.button19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button19.FlatAppearance.BorderSize = 0;
-            this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button19.Font = new System.Drawing.Font("Segoe UI", 18F);
-            this.button19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button19.Location = new System.Drawing.Point(3, 45);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(188, 15);
-            this.button19.TabIndex = 11;
-            this.button19.Tag = "control";
-            this.button19.Text = "Gần đúng";
-            this.button19.UseVisualStyleBackColor = false;
-            this.button19.Click += new System.EventHandler(this.Button19_Click);
-            // 
-            // button18
-            // 
-            this.button18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
-            this.button18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button18.FlatAppearance.BorderSize = 0;
-            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.Font = new System.Drawing.Font("Segoe UI", 18F);
-            this.button18.ForeColor = System.Drawing.Color.GreenYellow;
-            this.button18.Location = new System.Drawing.Point(3, 24);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(188, 15);
-            this.button18.TabIndex = 12;
-            this.button18.Tag = "control";
-            this.button18.Text = "Đúng";
-            this.button18.UseVisualStyleBackColor = false;
-            // 
-            // button17
-            // 
-            this.button17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
-            this.button17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button17.FlatAppearance.BorderSize = 0;
-            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button17.Font = new System.Drawing.Font("Segoe UI", 18F);
-            this.button17.ForeColor = System.Drawing.Color.Lime;
-            this.button17.Location = new System.Drawing.Point(3, 3);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(188, 15);
-            this.button17.TabIndex = 13;
-            this.button17.Tag = "control";
-            this.button17.Text = "Dễ";
-            this.button17.UseVisualStyleBackColor = false;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label14.Location = new System.Drawing.Point(33, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(194, 75);
-            this.label14.TabIndex = 12;
-            this.label14.Tag = "control";
-            this.label14.Text = "Tự đánh giá đáp án";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel26
-            // 
-            this.panel26.Controls.Add(this.label15);
-            this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel26.Location = new System.Drawing.Point(3, 3);
-            this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(24, 69);
-            this.panel26.TabIndex = 13;
-            this.panel26.Tag = "control";
-            // 
-            // label15
-            // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label15.AutoSize = true;
-            this.label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 24F);
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label15.Location = new System.Drawing.Point(24, 10);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(263, 47);
-            this.label15.TabIndex = 7;
-            this.label15.Tag = "control";
-            this.label15.Text = "Từ được hiển thij";
-            // 
-            // panel27
-            // 
-            this.panel27.Controls.Add(this.button22);
-            this.panel27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel27.Location = new System.Drawing.Point(3, 171);
-            this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(24, 69);
-            this.panel27.TabIndex = 15;
-            this.panel27.Tag = "control";
-            // 
-            // button22
-            // 
-            this.button22.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button22.Font = new System.Drawing.Font("Segoe UI", 18F);
-            this.button22.ForeColor = System.Drawing.Color.White;
-            this.button22.Location = new System.Drawing.Point(24, 7);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(210, 54);
-            this.button22.TabIndex = 4;
-            this.button22.Tag = "control";
-            this.button22.Text = "Đáp án";
-            this.button22.UseVisualStyleBackColor = true;
-            // 
             // flyoutPanel6
             // 
             this.flyoutPanel6.Controls.Add(this.flyoutPanelControl2);
@@ -1883,12 +1735,208 @@
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox1.Location = new System.Drawing.Point(800, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(720, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(53, 444);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Tag = "control";
+            // 
+            // flyoutPanel5
+            // 
+            this.flyoutPanel5.Controls.Add(this.flyoutPanelControl5);
+            this.flyoutPanel5.Location = new System.Drawing.Point(288, 42);
+            this.flyoutPanel5.Name = "flyoutPanel5";
+            this.flyoutPanel5.Options.CloseOnOuterClick = true;
+            this.flyoutPanel5.OwnerControl = this.panel8;
+            this.flyoutPanel5.ParentForm = this;
+            this.flyoutPanel5.Size = new System.Drawing.Size(120, 117);
+            this.flyoutPanel5.TabIndex = 2;
+            this.flyoutPanel5.Tag = "control";
+            // 
+            // flyoutPanelControl5
+            // 
+            this.flyoutPanelControl5.Controls.Add(this.tableLayoutPanel15);
+            this.flyoutPanelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flyoutPanelControl5.FlyoutPanel = this.flyoutPanel5;
+            this.flyoutPanelControl5.Location = new System.Drawing.Point(0, 0);
+            this.flyoutPanelControl5.Name = "flyoutPanelControl5";
+            this.flyoutPanelControl5.Size = new System.Drawing.Size(120, 117);
+            this.flyoutPanelControl5.TabIndex = 0;
+            this.flyoutPanelControl5.Tag = "control";
+            // 
+            // tableLayoutPanel15
+            // 
+            this.tableLayoutPanel15.ColumnCount = 1;
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel15.Controls.Add(this.xtraTabControl3, 0, 1);
+            this.tableLayoutPanel15.Controls.Add(this.panel28, 0, 0);
+            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
+            this.tableLayoutPanel15.RowCount = 2;
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(116, 113);
+            this.tableLayoutPanel15.TabIndex = 0;
+            this.tableLayoutPanel15.Tag = "control";
+            // 
+            // xtraTabControl3
+            // 
+            this.xtraTabControl3.Appearance.ForeColor = System.Drawing.SystemColors.Window;
+            this.xtraTabControl3.Appearance.Options.UseForeColor = true;
+            this.xtraTabControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraTabControl3.Location = new System.Drawing.Point(3, 103);
+            this.xtraTabControl3.Name = "xtraTabControl3";
+            this.xtraTabControl3.SelectedTabPage = this.xtraTabPage8;
+            this.xtraTabControl3.Size = new System.Drawing.Size(110, 7);
+            this.xtraTabControl3.TabIndex = 3;
+            this.xtraTabControl3.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage8,
+            this.xtraTabPage9});
+            this.xtraTabControl3.Tag = "control";
+            // 
+            // xtraTabPage8
+            // 
+            this.xtraTabPage8.Controls.Add(this.pictureBox2);
+            this.xtraTabPage8.Controls.Add(this.richTextBox5);
+            this.xtraTabPage8.Name = "xtraTabPage8";
+            this.xtraTabPage8.Size = new System.Drawing.Size(108, 0);
+            this.xtraTabPage8.Tag = "control";
+            this.xtraTabPage8.Text = "Nghĩa từ";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox2.Location = new System.Drawing.Point(-24, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(132, 0);
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Tag = "control";
+            // 
+            // richTextBox5
+            // 
+            this.richTextBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
+            this.richTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox5.ForeColor = System.Drawing.Color.White;
+            this.richTextBox5.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox5.Name = "richTextBox5";
+            this.richTextBox5.Size = new System.Drawing.Size(108, 0);
+            this.richTextBox5.TabIndex = 2;
+            this.richTextBox5.Tag = "control";
+            this.richTextBox5.Text = "";
+            // 
+            // xtraTabPage9
+            // 
+            this.xtraTabPage9.Controls.Add(this.richTextBox6);
+            this.xtraTabPage9.Name = "xtraTabPage9";
+            this.xtraTabPage9.Size = new System.Drawing.Size(108, 0);
+            this.xtraTabPage9.Tag = "control";
+            this.xtraTabPage9.Text = "Nghĩa chuyên ngành";
+            // 
+            // richTextBox6
+            // 
+            this.richTextBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
+            this.richTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.richTextBox6.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox6.Name = "richTextBox6";
+            this.richTextBox6.Size = new System.Drawing.Size(108, 0);
+            this.richTextBox6.TabIndex = 3;
+            this.richTextBox6.Tag = "control";
+            this.richTextBox6.Text = "";
+            // 
+            // panel28
+            // 
+            this.panel28.Controls.Add(this.button26);
+            this.panel28.Controls.Add(this.button27);
+            this.panel28.Controls.Add(this.textBox7);
+            this.panel28.Controls.Add(this.textBox8);
+            this.panel28.Controls.Add(this.button28);
+            this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel28.Location = new System.Drawing.Point(3, 3);
+            this.panel28.Name = "panel28";
+            this.panel28.Size = new System.Drawing.Size(110, 94);
+            this.panel28.TabIndex = 4;
+            this.panel28.Tag = "control";
+            // 
+            // button26
+            // 
+            this.button26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button26.FlatAppearance.BorderSize = 0;
+            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button26.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.button26.ImageList = this.imageList9;
+            this.button26.Location = new System.Drawing.Point(27, 53);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(59, 34);
+            this.button26.TabIndex = 5;
+            this.button26.Tag = "controlbtn";
+            this.button26.Text = "?";
+            this.button26.UseVisualStyleBackColor = true;
+            this.button26.Click += new System.EventHandler(this.Button26_Click);
+            // 
+            // button27
+            // 
+            this.button27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button27.FlatAppearance.BorderSize = 0;
+            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button27.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.button27.Location = new System.Drawing.Point(-202, 53);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(94, 37);
+            this.button27.TabIndex = 6;
+            this.button27.Tag = "control";
+            this.button27.Text = "Lưu";
+            this.button27.UseVisualStyleBackColor = true;
+            // 
+            // textBox7
+            // 
+            this.textBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
+            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.textBox7.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBox7.Location = new System.Drawing.Point(15, 55);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(130, 29);
+            this.textBox7.TabIndex = 5;
+            this.textBox7.Tag = "control";
+            this.textBox7.Text = "Phát âm";
+            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
+            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox8.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.textBox8.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBox8.Location = new System.Drawing.Point(15, 12);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(79, 29);
+            this.textBox8.TabIndex = 2;
+            this.textBox8.Tag = "control";
+            // 
+            // button28
+            // 
+            this.button28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button28.FlatAppearance.BorderSize = 0;
+            this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button28.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.button28.Location = new System.Drawing.Point(-100, 55);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(109, 32);
+            this.button28.TabIndex = 3;
+            this.button28.Tag = "control";
+            this.button28.Text = "Thêm hình";
+            this.button28.UseVisualStyleBackColor = true;
             // 
             // flyoutPanel3
             // 
@@ -2150,7 +2198,7 @@
             this.richTextBox1.ForeColor = System.Drawing.Color.White;
             this.richTextBox1.Location = new System.Drawing.Point(0, 0);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(853, 444);
+            this.richTextBox1.Size = new System.Drawing.Size(773, 444);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Tag = "control";
             this.richTextBox1.Text = "";
@@ -2159,7 +2207,7 @@
             // 
             this.xtraTabPage6.Controls.Add(this.richTextBox2);
             this.xtraTabPage6.Name = "xtraTabPage6";
-            this.xtraTabPage6.Size = new System.Drawing.Size(853, 444);
+            this.xtraTabPage6.Size = new System.Drawing.Size(773, 444);
             this.xtraTabPage6.Tag = "control";
             this.xtraTabPage6.Text = "Nghĩa chuyên ngành";
             // 
@@ -2172,7 +2220,7 @@
             this.richTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.richTextBox2.Location = new System.Drawing.Point(0, 0);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(853, 444);
+            this.richTextBox2.Size = new System.Drawing.Size(773, 444);
             this.richTextBox2.TabIndex = 3;
             this.richTextBox2.Tag = "control";
             this.richTextBox2.Text = "";
@@ -2183,7 +2231,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(855, 39);
+            this.panel3.Size = new System.Drawing.Size(775, 39);
             this.panel3.TabIndex = 0;
             this.panel3.Tag = "control";
             // 
@@ -2195,7 +2243,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel11.Location = new System.Drawing.Point(0, 11);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(855, 28);
+            this.panel11.Size = new System.Drawing.Size(775, 28);
             this.panel11.TabIndex = 22;
             this.panel11.Tag = "control";
             // 
@@ -2220,7 +2268,7 @@
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label4.Location = new System.Drawing.Point(814, 0);
+            this.label4.Location = new System.Drawing.Point(734, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 20);
             this.label4.TabIndex = 21;
@@ -2246,7 +2294,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(855, 117);
+            this.panel2.Size = new System.Drawing.Size(775, 117);
             this.panel2.TabIndex = 0;
             this.panel2.Tag = "control";
             // 
@@ -2260,7 +2308,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage4;
-            this.xtraTabControl1.Size = new System.Drawing.Size(855, 117);
+            this.xtraTabControl1.Size = new System.Drawing.Size(775, 117);
             this.xtraTabControl1.TabIndex = 22;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage3,
@@ -2275,7 +2323,7 @@
             this.xtraTabPage4.Controls.Add(this.listView1);
             this.xtraTabPage4.Controls.Add(this.flowLayoutPanel1);
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(853, 88);
+            this.xtraTabPage4.Size = new System.Drawing.Size(773, 88);
             this.xtraTabPage4.Tag = "control";
             this.xtraTabPage4.Text = "Công cụ";
             // 
@@ -2301,7 +2349,7 @@
             this.listView1.LargeImageList = this.imageList5;
             this.listView1.Location = new System.Drawing.Point(0, 10);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(853, 78);
+            this.listView1.Size = new System.Drawing.Size(773, 78);
             this.listView1.TabIndex = 2;
             this.listView1.Tag = "control";
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -2330,7 +2378,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(853, 10);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(773, 10);
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.Tag = "control";
             // 
@@ -2349,7 +2397,7 @@
             this.xtraTabPage3.Appearance.PageClient.Options.UseBackColor = true;
             this.xtraTabPage3.Controls.Add(this.listView2);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(853, 88);
+            this.xtraTabPage3.Size = new System.Drawing.Size(773, 88);
             this.xtraTabPage3.Tag = "control";
             this.xtraTabPage3.Text = "Bộ sưu tập";
             // 
@@ -2369,7 +2417,7 @@
             this.listView2.Location = new System.Drawing.Point(0, 0);
             this.listView2.Name = "listView2";
             this.listView2.Scrollable = false;
-            this.listView2.Size = new System.Drawing.Size(853, 88);
+            this.listView2.Size = new System.Drawing.Size(773, 88);
             this.listView2.TabIndex = 0;
             this.listView2.Tag = "control";
             this.listView2.TileSize = new System.Drawing.Size(200, 20);
@@ -2381,7 +2429,7 @@
             // 
             this.xtraTabPage7.Controls.Add(this.tableLayoutPanel3);
             this.xtraTabPage7.Name = "xtraTabPage7";
-            this.xtraTabPage7.Size = new System.Drawing.Size(853, 88);
+            this.xtraTabPage7.Size = new System.Drawing.Size(773, 88);
             this.xtraTabPage7.Tag = "control";
             this.xtraTabPage7.Text = "Trợ giúp";
             // 
@@ -2397,7 +2445,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(853, 88);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(773, 88);
             this.tableLayoutPanel3.TabIndex = 0;
             this.tableLayoutPanel3.Tag = "control";
             // 
@@ -2419,7 +2467,7 @@
             this.listView3.MultiSelect = false;
             this.listView3.Name = "listView3";
             this.listView3.Scrollable = false;
-            this.listView3.Size = new System.Drawing.Size(847, 80);
+            this.listView3.Size = new System.Drawing.Size(767, 80);
             this.listView3.TabIndex = 3;
             this.listView3.Tag = "control";
             this.listView3.UseCompatibleStateImageBehavior = false;
@@ -2437,7 +2485,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1109, 639);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1006, 639);
             this.tableLayoutPanel1.TabIndex = 1;
             this.tableLayoutPanel1.Tag = "control";
             // 
@@ -2456,6 +2504,7 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.ShowImageMargin = false;
             this.contextMenuStrip1.Size = new System.Drawing.Size(101, 92);
+            this.contextMenuStrip1.Tag = "control";
             // 
             // gfaaToolStripMenuItem
             // 
@@ -2497,6 +2546,7 @@
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.ShowImageMargin = false;
             this.contextMenuStrip2.Size = new System.Drawing.Size(178, 100);
+            this.contextMenuStrip2.Tag = "control";
             // 
             // loạiTừToolStripMenuItem
             // 
@@ -2536,6 +2586,7 @@
             this.contextMenuStrip3.Name = "contextMenuStrip3";
             this.contextMenuStrip3.ShowImageMargin = false;
             this.contextMenuStrip3.Size = new System.Drawing.Size(162, 48);
+            this.contextMenuStrip3.Tag = "control";
             this.contextMenuStrip3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ContextMenuStrip3_MouseClick);
             // 
             // Danhsach
@@ -2616,7 +2667,7 @@
             this.Appearance.Options.UseFont = true;
             this.Appearance.Options.UseForeColor = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1109, 639);
+            this.ClientSize = new System.Drawing.Size(1006, 639);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.None;
@@ -2635,6 +2686,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
             this.xtraTabControl2.ResumeLayout(false);
             this.xtraTabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel4)).EndInit();
+            this.flyoutPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl4)).EndInit();
+            this.flyoutPanelControl4.ResumeLayout(false);
+            this.tableLayoutPanel11.ResumeLayout(false);
+            this.tableLayoutPanel11.PerformLayout();
+            this.panel24.ResumeLayout(false);
+            this.tableLayoutPanel13.ResumeLayout(false);
+            this.panel25.ResumeLayout(false);
+            this.tableLayoutPanel14.ResumeLayout(false);
+            this.panel26.ResumeLayout(false);
+            this.panel26.PerformLayout();
+            this.panel27.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel1)).EndInit();
             this.flyoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl1)).EndInit();
@@ -2654,9 +2718,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl7)).EndInit();
             this.flyoutPanelControl7.ResumeLayout(false);
             this.tableLayoutPanel17.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch2.Properties)).EndInit();
             this.panel29.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             this.panel30.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
             this.panel31.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -2676,6 +2742,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel2)).EndInit();
             this.flyoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel6)).EndInit();
+            this.flyoutPanel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl2)).EndInit();
+            this.flyoutPanelControl2.ResumeLayout(false);
+            this.tableLayoutPanel16.ResumeLayout(false);
+            this.tableLayoutPanel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel5)).EndInit();
             this.flyoutPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl5)).EndInit();
@@ -2688,26 +2761,6 @@
             this.xtraTabPage9.ResumeLayout(false);
             this.panel28.ResumeLayout(false);
             this.panel28.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel4)).EndInit();
-            this.flyoutPanel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl4)).EndInit();
-            this.flyoutPanelControl4.ResumeLayout(false);
-            this.tableLayoutPanel11.ResumeLayout(false);
-            this.tableLayoutPanel11.PerformLayout();
-            this.panel24.ResumeLayout(false);
-            this.tableLayoutPanel13.ResumeLayout(false);
-            this.panel25.ResumeLayout(false);
-            this.tableLayoutPanel14.ResumeLayout(false);
-            this.panel26.ResumeLayout(false);
-            this.panel26.PerformLayout();
-            this.panel27.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel6)).EndInit();
-            this.flyoutPanel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl2)).EndInit();
-            this.flyoutPanelControl2.ResumeLayout(false);
-            this.tableLayoutPanel16.ResumeLayout(false);
-            this.tableLayoutPanel16.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel3)).EndInit();
             this.flyoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl3)).EndInit();
@@ -2917,5 +2970,7 @@
         private System.Windows.Forms.ImageList imageList8;
         private System.Windows.Forms.ImageList imageList9;
         private System.Windows.Forms.BindingSource bindingSource1;
+        private DevExpress.XtraEditors.ToggleSwitch toggleSwitch2;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
     }
 }

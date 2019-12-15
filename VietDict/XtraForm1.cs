@@ -24,6 +24,16 @@ namespace VietDict
         int light = 1;
         Color backcolor = Color.White;
         Color forecolor = Color.Black;
+        int wordsize = 1;
+        int hoctu = 0;
+        int bigword = 16;
+        int normalsize = 12;
+        // bien nay them vao by cuong
+        int index = 0;
+        List<string> res;
+        int countres = 0;
+
+
         public XtraForm1()
         {
 
@@ -150,8 +160,8 @@ namespace VietDict
                 res = mainProc.removeFromBookmark(curNode.Text);
                 if (res)
                 {
-                    isBookmarked = false;                    
-                    button4.ImageIndex=button4.ImageIndex+2;
+                    isBookmarked = false;
+                    button4.ImageIndex = button4.ImageIndex + 2;
                 }
             }
             else
@@ -159,7 +169,7 @@ namespace VietDict
                 res = mainProc.addToBookmark(curNode.Text);
                 {
                     isBookmarked = true;
-                    button4.ImageIndex= button4.ImageIndex-2;
+                    button4.ImageIndex = button4.ImageIndex - 2;
                 }
             }
         }
@@ -172,36 +182,48 @@ namespace VietDict
             {
                 richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), richTextBox1.Lines[i].Length);
                 string rtbstr = richTextBox1.SelectedText;
-                
 
-                if (Regex.Match(rtbstr,@"^\s*\+").Length != 0) 
+
+                if (Regex.Match(rtbstr, @"^\s*\+").Length != 0)
                 {
-                    richTextBox1.SelectionColor = Color.FromArgb(191, 201, 38);               
+                    richTextBox1.SelectionColor = Color.FromArgb(191, 201, 38);
+                    if (light ==0) richTextBox1.SelectionColor = invert(richTextBox1.SelectionColor);
                     richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 5);
                     richTextBox1.SelectionColor = Color.Aqua;
+                    if (light == 0) richTextBox1.SelectionColor = invert(richTextBox1.SelectionColor);
                 }
                 if (Regex.Match(rtbstr, @"^\s*\*").Length != 0)
                 {
                     richTextBox1.SelectionColor = Color.FromArgb(191, 150, 100);
+                    if (light == 0) richTextBox1.SelectionColor = invert(richTextBox1.SelectionColor);
                     richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 5);
                     richTextBox1.SelectionColor = Color.Aqua;
+                    if (light == 0) richTextBox1.SelectionColor = invert(richTextBox1.SelectionColor);
                     richTextBox1.SelectedText = "\t\t =";
                 }
                 if ((Regex.Match(rtbstr, @"^\s*\-").Length != 0) && (Regex.Match(rtbstr, @"^\s*\->").Length == 0))
                 {
                     richTextBox1.SelectionColor = Color.LightBlue;
+                    if (light == 0) richTextBox1.SelectionColor = invert(richTextBox1.SelectionColor);
                     richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 4);
                     richTextBox1.SelectionColor = Color.Aqua;
+                    if (light == 1) richTextBox1.SelectionColor = invert(richTextBox1.SelectionColor);
                 }
                 if (Regex.Match(rtbstr, @"^\s*\->").Length != 0)
                 {
                     richTextBox1.SelectionColor = Color.Aqua;
-                    richTextBox1.SelectionFont = new Font("Segoe UI", 16, FontStyle.Regular);
+                    if (light == 0) richTextBox1.SelectionColor = invert(richTextBox1.SelectionColor);
+                    richTextBox1.SelectionFont = new Font("Segoe UI", bigword, FontStyle.Regular);
                     richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 2);
                     richTextBox1.SelectedText = "\u21D2";
+                    
                 }
             }
 
+        }
+        private Color invert(Color color)
+        {
+            return Color.FromArgb(255 - color.R, 255 - color.G, 255 - color.B);
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -213,6 +235,7 @@ namespace VietDict
 
         private void reloadMeaningPanel()
         {
+            if (curNode == null) return;
             string pronounce;
             richTextBox1.Text = mainProc.outputWordBaseInfo(curNode.Text, out pronounce);
             FormatText();
@@ -253,8 +276,18 @@ namespace VietDict
         {
             Thread.Sleep(2000);
             light = Int32.Parse(ConfigurationManager.AppSettings["LightMode"]);
+            wordsize = Int32.Parse(ConfigurationManager.AppSettings["WordSize"]);
+            hoctu = Int32.Parse(ConfigurationManager.AppSettings["Hoctuwhenstarting"]);
+
             if (light == 0) todarkmode();
             else tolightmode();
+
+            if (hoctu == 0) { toggleSwitch2.IsOn = false; }
+            else if (hoctu == 1) { toggleSwitch2.IsOn = true; flyoutPanel4.Show(); }
+
+            comboBoxEdit1.SelectedIndex = wordsize;
+
+            wordsizechange();
         }
 
         private static bool canCloseFunc(DialogResult parameter)
@@ -276,7 +309,8 @@ namespace VietDict
             if (DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action, properties, predicate) == System.Windows.Forms.DialogResult.Yes)
             {
                 e.Cancel = false;
-                UpdateAppSettings("LightMode", light.ToString());                
+                UpdateAppSettings("LightMode", light.ToString());
+                UpdateAppSettings("WordSize", wordsize.ToString());
             }
             else e.Cancel = true;
         }
@@ -356,6 +390,12 @@ namespace VietDict
             {
                 flyoutPanel4.Height = (int)(panel8.Height);
                 flyoutPanel4.ShowPopup();
+                //by cuong
+                //index = 0;
+                //res = mainProc.wordlearn(30);
+                //countres = res.Count();
+                //labelWL.Text = res[0];
+
             }
             if (listView1.SelectedIndices[0] == 3)
             {
@@ -428,7 +468,7 @@ namespace VietDict
         }
 
 
-       
+
 
         private void ButtonLightmode(Control parent)
         {
@@ -442,20 +482,19 @@ namespace VietDict
                 }
                 if (control is ListView)
                 {
-                    foreach(ListViewItem i in (control as ListView).Items)
+                    foreach (ListViewItem i in (control as ListView).Items)
                     {
                         i.BackColor = backcolor;
                         i.ForeColor = forecolor;
                     }
                 }
-                if(control.Tag.ToString() == "controlbtn")
+                if (control.Tag.ToString() == "controlbtn")
                 {
-                    if(light ==0)
-                    (control as Button).ImageList = imageList8;
-                    else if(light==1)
-                    (control as Button).ImageList = imageList9;
+                    if (light == 0)
+                        (control as Button).ImageList = imageList8;
+                    else if (light == 1)
+                        (control as Button).ImageList = imageList9;
                 }
-                
                 ButtonLightmode(control);
             }
         }
@@ -476,7 +515,7 @@ namespace VietDict
             listView1.LargeImageList = imageList4;
             listView2.LargeImageList = imageList6;
             listView3.LargeImageList = imageList4;
-            button4.ImageIndex=0;
+            button4.ImageIndex = 0;
         }
         private void tolightmode()
         {
@@ -495,7 +534,7 @@ namespace VietDict
             listView1.LargeImageList = imageList5;
             listView2.LargeImageList = imageList2;
             listView3.LargeImageList = imageList5;
-            button4.ImageIndex=2;
+            button4.ImageIndex = 2;
         }
         private void ToggleSwitch1_Toggled(object sender, EventArgs e)
         {
@@ -507,6 +546,7 @@ namespace VietDict
             {
                 tolightmode();
             }
+            this.reloadMeaningPanel();
         }
 
         private void BindingSource1_CurrentChanged(object sender, EventArgs e)
@@ -525,7 +565,60 @@ namespace VietDict
 
             ConfigurationManager.RefreshSection("appSettings");
         }
+
+        private void ToggleSwitch2_Toggled(object sender, EventArgs e)
+        {
+            if (hoctu == 0) hoctu = 1;
+            else hoctu = 0;
+        }
+
+        private void ComboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxEdit1.SelectedIndex == 0) wordsize = 0;
+            else if (comboBoxEdit1.SelectedIndex == 1) wordsize = 1;
+            else if (comboBoxEdit1.SelectedIndex == 2) wordsize = 2;
+            wordsizechange();
+            this.reloadMeaningPanel();
+        }
+
+        private void wordsizechange()
+        {
+            if (wordsize == 0)
+            {
+                bigword = 16;
+                normalsize = 12;
+            }
+            else if (wordsize == 1)
+            {
+                bigword = 20;
+                normalsize = 14;
+            }
+            else if (wordsize == 2)
+            {
+                bigword = 24;
+                normalsize = 16;
+            }
+            richTextBox1.Font = richTextBox2.Font = richTextBox3.Font = richTextBox5.Font = richTextBox6.Font = new Font("Segoe UI", normalsize, FontStyle.Regular);
+            if (light == 0)
+            {
+                richTextBox2.ForeColor = Color.DarkBlue;
+                richTextBox3.ForeColor = Color.DarkBlue;
+                richTextBox5.ForeColor = Color.DarkBlue;
+                richTextBox6.ForeColor = Color.DarkBlue;
+            }
+            else
+            {
+                richTextBox2.ForeColor = Color.Aqua;
+                richTextBox3.ForeColor = Color.Aqua;
+                richTextBox5.ForeColor = Color.Aqua;
+                richTextBox6.ForeColor = Color.Aqua;
+            }
+            treeView1.Font = new Font("Segoe UI", normalsize, FontStyle.Regular);
+        }
+
+
+        // by cuong
+
     }
-
-
 }
+
