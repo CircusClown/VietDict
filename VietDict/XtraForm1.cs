@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Threading;
+using System.Text.RegularExpressions;
+using System.Configuration;
+
 
 namespace VietDict
 {
@@ -18,6 +21,9 @@ namespace VietDict
         TreeNode curNode;
         string selectCollection = "";
         bool isBookmarked;
+        int light = 1;
+        Color backcolor = Color.White;
+        Color forecolor = Color.Black;
         public XtraForm1()
         {
 
@@ -36,7 +42,9 @@ namespace VietDict
             {
                 foreach (var entry in colList)
                 {
-                    listView2.Items.Add(new ListViewItem(new string[] { entry }, "hiclipart.com (4).png", System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null));
+                    ListViewItem newlistviewitem = new ListViewItem(new string[] { entry }, 0, System.Drawing.SystemColors.Window, System.Drawing.Color.Empty, null);
+                    newlistviewitem.Tag = "control";
+                    listView2.Items.Add(newlistviewitem);
                 }
             }
             this.KeyPreview = true;
@@ -142,8 +150,8 @@ namespace VietDict
                 res = mainProc.removeFromBookmark(curNode.Text);
                 if (res)
                 {
-                    isBookmarked = false;
-                    button4.Image = global::VietDict.Properties.Resources.untitled__13_;
+                    isBookmarked = false;                    
+                    button4.ImageIndex=button4.ImageIndex+2;
                 }
             }
             else
@@ -151,7 +159,7 @@ namespace VietDict
                 res = mainProc.addToBookmark(curNode.Text);
                 {
                     isBookmarked = true;
-                    button4.Image = global::VietDict.Properties.Resources.untitled__23_;
+                    button4.ImageIndex= button4.ImageIndex-2;
                 }
             }
         }
@@ -163,27 +171,29 @@ namespace VietDict
             for (int i = selectionstart; i < totallength; i++)
             {
                 richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), richTextBox1.Lines[i].Length);
+                string rtbstr = richTextBox1.SelectedText;
+                
 
-                if (richTextBox1.SelectedText.Contains("+") == true)
+                if (Regex.Match(rtbstr,@"^\s*\+").Length != 0) 
                 {
-                    richTextBox1.SelectionColor = Color.FromArgb(191, 201, 38);
+                    richTextBox1.SelectionColor = Color.FromArgb(191, 201, 38);               
                     richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 5);
                     richTextBox1.SelectionColor = Color.Aqua;
                 }
-                if (richTextBox1.SelectedText.Contains("*") == true)
+                if (Regex.Match(rtbstr, @"^\s*\*").Length != 0)
                 {
                     richTextBox1.SelectionColor = Color.FromArgb(191, 150, 100);
                     richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 5);
                     richTextBox1.SelectionColor = Color.Aqua;
                     richTextBox1.SelectedText = "\t\t =";
                 }
-                if ((richTextBox1.SelectedText.Contains("-") == true) && (richTextBox1.SelectedText.Contains("->") == false))
+                if ((Regex.Match(rtbstr, @"^\s*\-").Length != 0) && (Regex.Match(rtbstr, @"^\s*\->").Length == 0))
                 {
                     richTextBox1.SelectionColor = Color.LightBlue;
                     richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), 4);
                     richTextBox1.SelectionColor = Color.Aqua;
                 }
-                if (richTextBox1.SelectedText.Contains("->") == true)
+                if (Regex.Match(rtbstr, @"^\s*\->").Length != 0)
                 {
                     richTextBox1.SelectionColor = Color.Aqua;
                     richTextBox1.SelectionFont = new Font("Segoe UI", 16, FontStyle.Regular);
@@ -199,7 +209,7 @@ namespace VietDict
             onSearch();
         }
 
-    
+
 
         private void reloadMeaningPanel()
         {
@@ -242,6 +252,9 @@ namespace VietDict
         private void XtraForm1_Load(object sender, EventArgs e)
         {
             Thread.Sleep(2000);
+            light = Int32.Parse(ConfigurationManager.AppSettings["LightMode"]);
+            if (light == 0) todarkmode();
+            else tolightmode();
         }
 
         private static bool canCloseFunc(DialogResult parameter)
@@ -260,7 +273,11 @@ namespace VietDict
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties properties = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutProperties();
             properties.ButtonSize = new Size(100, 40);
             properties.Style = DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutStyle.MessageBox;
-            if (DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action, properties, predicate) == System.Windows.Forms.DialogResult.Yes) e.Cancel = false;
+            if (DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action, properties, predicate) == System.Windows.Forms.DialogResult.Yes)
+            {
+                e.Cancel = false;
+                UpdateAppSettings("LightMode", light.ToString());                
+            }
             else e.Cancel = true;
         }
 
@@ -274,11 +291,11 @@ namespace VietDict
                 //DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "OK", Result = System.Windows.Forms.DialogResult.OK };
                 //action.Commands.Add(command1);
                 //DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action);
-
                 flyoutPanel2.ShowPopup();
             }
             if (listView3.SelectedIndices[0] == 1)
             {
+                flyoutPanel6.Width = panel1.Width;
                 flyoutPanel6.ShowPopup();
             }
         }
@@ -323,7 +340,7 @@ namespace VietDict
                 //DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand command1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.FlyoutCommand() { Text = "OK", Result = System.Windows.Forms.DialogResult.OK };
                 //action.Commands.Add(command1);
                 //DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action);
-                flyoutPanel3.Height =(int)(ClientSize.Height*0.8);
+                flyoutPanel3.Height = (int)(ClientSize.Height * 0.8);
                 flyoutPanel3.ShowPopup();
             }
             if (listView1.SelectedIndices[0] == 1)
@@ -335,10 +352,15 @@ namespace VietDict
                 //DevExpress.XtraBars.Docking2010.Customization.FlyoutDialog.Show(this, action);
                 flyoutPanel1.ShowPopup();
             }
-            if (listView1.SelectedIndices[0]==2)
+            if (listView1.SelectedIndices[0] == 2)
             {
                 flyoutPanel4.Height = (int)(panel8.Height);
                 flyoutPanel4.ShowPopup();
+            }
+            if (listView1.SelectedIndices[0] == 3)
+            {
+                flyoutPanel7.Width = panel1.Width;
+                flyoutPanel7.ShowPopup();
             }
         }
 
@@ -381,9 +403,9 @@ namespace VietDict
         {
             curNode = e.Node;
             reloadMeaningPanel();
-            if (e.Button==MouseButtons.Right)
+            if (e.Button == MouseButtons.Right)
             {
-                contextMenuStrip3.Show(treeView1,e.Location);
+                contextMenuStrip3.Show(treeView1, e.Location);
                 foreach (ToolStripMenuItem i in contextMenuStrip3.Items)
                 {
                     i.ForeColor = Color.White;
@@ -399,6 +421,111 @@ namespace VietDict
         private void ContextMenuStrip3_MouseClick(object sender, MouseEventArgs e)
         {
         }
+
+        private void Button24_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+       
+
+        private void ButtonLightmode(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control.Tag == null) return;
+                if (((control.Tag.ToString() == "control") || ((control.Tag.ToString() == "controlbtn"))))
+                {
+                    control.BackColor = backcolor;
+                    control.ForeColor = forecolor;
+                }
+                if (control is ListView)
+                {
+                    foreach(ListViewItem i in (control as ListView).Items)
+                    {
+                        i.BackColor = backcolor;
+                        i.ForeColor = forecolor;
+                    }
+                }
+                if(control.Tag.ToString() == "controlbtn")
+                {
+                    if(light ==0)
+                    (control as Button).ImageList = imageList8;
+                    else if(light==1)
+                    (control as Button).ImageList = imageList9;
+                }
+                
+                ButtonLightmode(control);
+            }
+        }
+        private void todarkmode()
+        {
+            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("The Bezier", "Office White");
+            backcolor = Color.White;
+            forecolor = Color.Black;
+            light = 0;
+            ButtonLightmode(this);
+            ButtonLightmode(flyoutPanel1);
+            ButtonLightmode(flyoutPanel2);
+            ButtonLightmode(flyoutPanel3);
+            ButtonLightmode(flyoutPanel4);
+            ButtonLightmode(flyoutPanel5);
+            ButtonLightmode(flyoutPanel6);
+            ButtonLightmode(flyoutPanel7);
+            listView1.LargeImageList = imageList4;
+            listView2.LargeImageList = imageList6;
+            listView3.LargeImageList = imageList4;
+            button4.ImageIndex=0;
+        }
+        private void tolightmode()
+        {
+            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("The Bezier", "Dark mode");
+            light = 1;
+            backcolor = Color.FromArgb(41, 45, 51);
+            forecolor = Color.White;
+            ButtonLightmode(this);
+            ButtonLightmode(flyoutPanel1);
+            ButtonLightmode(flyoutPanel2);
+            ButtonLightmode(flyoutPanel3);
+            ButtonLightmode(flyoutPanel4);
+            ButtonLightmode(flyoutPanel5);
+            ButtonLightmode(flyoutPanel6);
+            ButtonLightmode(flyoutPanel7);
+            listView1.LargeImageList = imageList5;
+            listView2.LargeImageList = imageList2;
+            listView3.LargeImageList = imageList5;
+            button4.ImageIndex=2;
+        }
+        private void ToggleSwitch1_Toggled(object sender, EventArgs e)
+        {
+            if (light == 1)
+            {
+                todarkmode();
+            }
+            else if (light == 0)
+            {
+                tolightmode();
+            }
+        }
+
+        private void BindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void UpdateAppSettings(string theKey, string theValue)
+        {
+            Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            if (ConfigurationManager.AppSettings.AllKeys.Contains(theKey))
+            {
+                configuration.AppSettings.Settings[theKey].Value = theValue;
+            }
+
+            configuration.Save(ConfigurationSaveMode.Modified);
+
+            ConfigurationManager.RefreshSection("appSettings");
+        }
     }
+
 
 }

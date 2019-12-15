@@ -118,15 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button21.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAMNJREFUOE+l
-        kt0SgiAUhHm5fl84za5L6CrjKD1Lv2tyGiUF0Z3ZCw7LNygrpC4PeVFuxVxJXd3ht6IqO9NtY8fxyq/V
-        owaxsc5OBcUDXRAbN9wrMmsbC0tSP4jdACkMlGS8oJZTeGWP/SsCxO4HYvhshSJsEvzfpcXMAf3cANVM
-        UF2Xb//wxJNA9Wt2+obhyw35nA/1C5tjQenx4ukTAiGQvz8shIZAidQ6DGDhe11Qtx9jxQClzW4SgAUI
-        AOXCLidKiA+frVsFCC0VtgAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="button14.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAjZJREFUSEvl
@@ -166,4 +157,19 @@
         N2R77MyRu8dnBqx90Oyw8kM3k7dHmT4ppT97JPMMHYQFbgAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="button21.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAMNJREFUOE+l
+        kt0SgiAUhHm5fl84za5L6CrjKD1Lv2tyGiUF0Z3ZCw7LNygrpC4PeVFuxVxJXd3ht6IqO9NtY8fxyq/V
+        owaxsc5OBcUDXRAbN9wrMmsbC0tSP4jdACkMlGS8oJZTeGWP/SsCxO4HYvhshSJsEvzfpcXMAf3cANVM
+        UF2Xb//wxJNA9Wt2+obhyw35nA/1C5tjQenx4ukTAiGQvz8shIZAidQ6DGDhe11Qtx9jxQClzW4SgAUI
+        AOXCLidKiA+frVsFCC0VtgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="backgroundWorker2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>181, 17</value>
+  </metadata>
 </root>
