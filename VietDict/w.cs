@@ -51,5 +51,10 @@ namespace VietDict
         {
 
         }
+
+        private void W_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

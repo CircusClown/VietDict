@@ -221,6 +221,33 @@ namespace VietDict
             }
         }
 
+        public bool insertCollection(string col)
+        {
+            if (!checkConnection()) return false;
+
+            SqlCommand queryCmd = new SqlCommand();
+            queryCmd.CommandType = CommandType.Text;
+
+            queryCmd.CommandText = "INSERT INTO BOSUUTAP VALUES (@col)";
+
+            SqlParameter param_tenbst = new SqlParameter("@col", SqlDbType.NVarChar);
+            param_tenbst.Value = col;
+            queryCmd.Parameters.Add(param_tenbst);
+            queryCmd.Connection = sqlcnt;
+
+            try
+            {
+                int res = queryCmd.ExecuteNonQuery();
+                if (res > 0) return true;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
+        }
+
         public bool removeFromCollection(string query, string col)
         {
             if (!checkConnection()) return false;
@@ -251,9 +278,10 @@ namespace VietDict
             }
         }
 
-        public string recallWordInfo(string query, out string pronounce)
+        public string recallWordInfo(string query, out string pronounce, out string img_path)
         {
             pronounce = "";
+            img_path = "";
             if (!checkConnection()) return null;
             
             string res = "";
@@ -272,6 +300,7 @@ namespace VietDict
                 if (sqlrdr.Read())
                 {
                     pronounce = sqlrdr.GetString(1);
+                    img_path = sqlrdr.GetString(2);
                     res = sqlrdr.GetString(3);
                 }
                 sqlrdr.Close();
@@ -353,6 +382,153 @@ namespace VietDict
                 sqlrdr.Close();
                 return false;
             }
+        }
+
+        public bool removeWord(string query)
+        {
+            //TODO: remove all special meaning and collection-word binding
+            if (!checkConnection()) return false;
+            SqlCommand specialMeanRemoveCmd = new SqlCommand();
+            specialMeanRemoveCmd.CommandType = CommandType.Text;
+            SqlCommand collectionBindRemoveCmd = new SqlCommand();
+            collectionBindRemoveCmd.CommandType = CommandType.Text;
+            specialMeanRemoveCmd.CommandText = "DELETE FROM TUCHUYENNGANH WHERE TenTu=@word";
+            collectionBindRemoveCmd.CommandText = "DELETE FROM LUUTU WHERE TenTu=@word";
+            SqlParameter param_tentu = new SqlParameter("@word", SqlDbType.VarChar);
+            SqlParameter param_tentu2 = new SqlParameter("@word", SqlDbType.VarChar);
+            param_tentu.Value = query;
+            param_tentu2.Value = query;
+            specialMeanRemoveCmd.Parameters.Add(param_tentu);
+            collectionBindRemoveCmd.Parameters.Add(param_tentu2);
+
+            //remove said word
+            SqlCommand removeCmd = new SqlCommand();
+            removeCmd.CommandType = CommandType.Text;
+            removeCmd.CommandText = "DELETE FROM TU WHERE TenTu=@word";
+            SqlParameter param_tentu3 = new SqlParameter("@word", SqlDbType.VarChar);
+            param_tentu3.Value = query;
+            removeCmd.Parameters.Add(param_tentu3);
+
+            try
+            {
+                specialMeanRemoveCmd.Connection = sqlcnt;
+                collectionBindRemoveCmd.Connection = sqlcnt;
+                removeCmd.Connection = sqlcnt;
+                int res = specialMeanRemoveCmd.ExecuteNonQuery();
+                res += collectionBindRemoveCmd.ExecuteNonQuery();
+                res += removeCmd.ExecuteNonQuery();
+                if (res == 0) return false;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
+        }
+
+        public bool removeCollection(string col)
+        {
+            //TODO: remove all collection-word binding
+            if (!checkConnection()) return false;
+            SqlCommand collectionBindRemoveCmd = new SqlCommand();
+            collectionBindRemoveCmd.CommandType = CommandType.Text;
+            collectionBindRemoveCmd.CommandText = "DELETE FROM LUUTU WHERE TenBST=@col";
+            SqlParameter param_tenbst = new SqlParameter("@col", SqlDbType.NVarChar);
+            param_tenbst.Value = col;
+            collectionBindRemoveCmd.Parameters.Add(param_tenbst);
+
+            //remove said collection
+            SqlCommand removeCmd = new SqlCommand();
+            removeCmd.CommandType = CommandType.Text;
+            removeCmd.CommandText = "DELETE FROM BOSUUTAP WHERE TenBST=@col";
+            SqlParameter param_tenbst2 = new SqlParameter("@col", SqlDbType.NVarChar);
+            param_tenbst2.Value = col;
+            removeCmd.Parameters.Add(param_tenbst2);
+
+            try
+            {
+                collectionBindRemoveCmd.Connection = sqlcnt;
+                removeCmd.Connection = sqlcnt;
+                int res = collectionBindRemoveCmd.ExecuteNonQuery();
+                res += removeCmd.ExecuteNonQuery();
+                if (res == 0) return false;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
+        }
+
+        public bool saveWord(string word, string illu_path, string pronounce, string bmean, string smean, string edit_target = "")
+        {
+            if (!checkConnection()) return false;
+            //if edit_target is empty, a new word is added
+            if (edit_target == "")
+            {
+                SqlCommand insertCmd = new SqlCommand();
+                insertCmd.CommandType = CommandType.Text;
+                insertCmd.CommandText = "INSERT INTO TU VALUES (@word, @pronounce, @illu_path, @bmean)";
+                SqlParameter param_tu = new SqlParameter("@word", SqlDbType.NVarChar);
+                SqlParameter param_phatam = new SqlParameter("@pronounce", SqlDbType.NVarChar);
+                SqlParameter param_minhhoa = new SqlParameter("@illu_path", SqlDbType.VarChar);
+                SqlParameter param_nghia = new SqlParameter("@bmean", SqlDbType.NVarChar);
+                param_tu.Value = word;
+                param_phatam.Value = pronounce;
+                param_minhhoa.Value = illu_path;
+                param_nghia.Value = bmean;
+                insertCmd.Parameters.Add(param_tu);
+                insertCmd.Parameters.Add(param_phatam);
+                insertCmd.Parameters.Add(param_minhhoa);
+                insertCmd.Parameters.Add(param_nghia);
+
+                try
+                {
+                    insertCmd.Connection = sqlcnt;
+                    int res = insertCmd.ExecuteNonQuery();
+                    if (res == 0) return false;
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                    return false;
+                }
+            }
+            else
+            {
+                SqlCommand updateCmd = new SqlCommand();
+                updateCmd.CommandType = CommandType.Text;
+                updateCmd.CommandText = "UPDATE TU SET PhienAm=@pronounce, MinhHoa=@illu_path, NghiaCoBan=@bmean WHERE TenTu=@word";
+                SqlParameter param_tu = new SqlParameter("@word", SqlDbType.NVarChar);
+                SqlParameter param_phatam = new SqlParameter("@pronounce", SqlDbType.NVarChar);
+                SqlParameter param_minhhoa = new SqlParameter("@illu_path", SqlDbType.VarChar);
+                SqlParameter param_nghia = new SqlParameter("@bmean", SqlDbType.NVarChar);
+                param_tu.Value = edit_target;
+                param_phatam.Value = pronounce;
+                param_minhhoa.Value = illu_path;
+                param_nghia.Value = bmean;
+                updateCmd.Parameters.Add(param_tu);
+                updateCmd.Parameters.Add(param_phatam);
+                updateCmd.Parameters.Add(param_minhhoa);
+                updateCmd.Parameters.Add(param_nghia);
+
+                try
+                {
+                    updateCmd.Connection = sqlcnt;
+                    int res = updateCmd.ExecuteNonQuery();
+                    if (res == 0) return false;
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                    return false;
+                }
+            }
+            //note: special meaning is not supported
         }
     }
 }

@@ -43,6 +43,9 @@ bld/
 # Visual Studio 2017 auto generated files
 Generated\ Files/
 
+#resource file
+Resources/img_data
+
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
